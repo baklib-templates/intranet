@@ -95,35 +95,35 @@
 
 {% schema %}
 {
-"name": "Channel",
-"description": "栏目主题自定义栏目",
-"thumb_url": "images/theme/channel.png",
-"sub_page_templates": ["channel", "page"],
-"settings": [
+  "name": "t:settings_schema.intranet_templates.channel_name",
+  "description": "t:settings_schema.intranet_templates.channel_description",
+  "thumb_url": "images/theme/${lang}/channel.png",
+  "sub_page_templates": ["channel", "page"],
+  "settings": [
     {
       "id": "icon",
       "type": "image_picker",
       "ratio": "1:1",
       "width": 100,
-      "label": "图标"
+      "label": "t:settings_schema.intranet_templates.shared_icon_label"
     },
     {
       "id": "tags",
       "type": "tag_picker",
       "multiple": true,
-      "label": "标签"
+      "label": "t:settings_schema.intranet_templates.shared_tags_label"
     },
     {
       "id": "thumb_image_url",
       "type": "image_picker",
       "ratio": "4:1",
       "width": 640,
-      "label": "主页封面"
+      "label": "t:settings_schema.intranet_templates.channel_cover_label"
     },
     {
       "id": "description",
       "type": "textarea",
-      "label": "描述"
+      "label": "t:settings_schema.intranet_templates.shared_description_label"
     }
   ]
 }

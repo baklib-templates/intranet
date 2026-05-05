@@ -1,0 +1,91 @@
+{
+  "theme_label": "Intranet",
+  "theme_description": "Eine interne Wissensplattform für Unternehmensnews, Events, Erfahrungsberichte, Mitarbeiterhandbücher und Unternehmenskultur.",
+  "generic": {
+    "search": "👋 Wie können wir helfen?",
+    "search_from": "Alle Suchergebnisse von: ",
+    "all": "Alle",
+    "popular_reply": "Beliebte Kommentare",
+    "newest": "Neueste",
+    "newest_reply": "Neueste Kommentare",
+    "related": "Verwandt",
+    "visit": "Aufrufe",
+    "vote": "Abstimmen",
+    "reply": "Antworten",
+    "comments": "Kommentare",
+    "comments_count": "{{ count }} Kommentare",
+    "join_to": "Bitte registriere dich, um zu antworten – jetzt der Community beitreten",
+    "profile": "Profil",
+    "title": "Titel",
+    "catalog": "Kategorie",
+    "content": "Inhalt",
+    "failed": "Fehlgeschlagen",
+    "navigation": "Navigation",
+    "recommend": "Empfehlung",
+    "under_review": "Inhalt wird geprüft und ist noch nicht öffentlich sichtbar",
+    "under_review_post": "Inhalt wird geprüft und ist nach Freigabe für andere sichtbar.",
+    "under_comment": "Bitte anmelden, um zu kommentieren",
+    "popular": "Beliebt",
+    "feedback": "Feedback?",
+    "feedback_required": "Feedback-Inhalt",
+    "tags": "Tags",
+    "home": "Startseite",
+    "back": "Zurück",
+    "empty": "Inhalt ist leer",
+    "published_at": "Veröffentlicht am",
+    "articles": "Artikel",
+    "read_more": "Mehr lesen",
+    "load_more_replies": "Weitere Antworten laden",
+    "dashboard": "Dashboard",
+    "404": "404 Nicht gefunden",
+    "403": "403 Kein Zugriff",
+    "copyright": "Alle Rechte vorbehalten",
+    "current_version": "Aktuelle Version",
+    "news_letter": "Tritt der Community bei und nimm an der Diskussion teil",
+    "terms1": "Eingereichte Inhalte werden vor Veröffentlichung von Administratoren geprüft.",
+    "terms2": "Plattformnutzer müssen die geltenden Erklärungen und Bedingungen einhalten:",
+    "disclaimer": "Haftungsausschluss"
+  },
+  "placeholders": {
+    "search": "Suchen...",
+    "input_feedback": "Feedback senden",
+    "input_password": "Passwort eingeben",
+    "post_content": "Beitragsinhalt"
+  },
+  "buttons": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "edit_again": "Erneut bearbeiten",
+    "not_login": "Nicht angemeldet",
+    "create_post": "Beitrag erstellen",
+    "create_comment": "Kommentar hinzufügen",
+    "join": "Community beitreten",
+    "edit_post": "Beitrag bearbeiten",
+    "profile": "Profil",
+    "sso_login": "SSO-Anmeldung",
+    "baklib_login": "Mit Baklib anmelden",
+    "redirect_to": "Weiterleitung zur Anmeldung"
+  },
+  "prompts": {
+    "page_restricted": "Diese Seite ist nur mit Authentifizierung zugänglich"
+  },
+  "errors": {
+    "create_failed": "Erstellen fehlgeschlagen"
+  },
+  "terms": {
+    "title": "Haftungsausschluss",
+    "item_1": "Alle Beiträge und Bilder geben ausschließlich die persönliche Meinung der Verfasserinnen und Verfasser wieder und stehen in keinem Zusammenhang mit der Position dieser Website.",
+    "item_2": "Andere Organisationen oder Personen müssen vor der Nutzung, Reproduktion oder Zitierung von Artikeln dieser Website die Zustimmung der Autorin/des Autors und der Website einholen.",
+    "item_3": "Wenn Verfasserinnen oder Verfasser Inhalte aus anderen Medien übernehmen und hier veröffentlichen, dient dies ausschließlich der Information und stellt keine Zustimmung zu deren Inhalten oder Übernahme der Verantwortung für deren Richtigkeit dar.",
+    "item_4": "Sollten Beiträge urheberrechtlich relevante Inhalte enthalten, informieren Sie uns bitte umgehend; wir entfernen die Inhalte zeitnah.",
+    "item_5": "Administrierende und Moderierende behalten sich das Recht vor, Beiträge ohne vorherige Ankündigung zu entfernen."
+  },
+  "feed": {
+    "meta_title": "Neueste Aktualisierungen",
+    "meta_description": "Aktivitätsstrom und Zeitleiste der zuletzt veröffentlichten Inhalte."
+  }
+}

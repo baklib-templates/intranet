@@ -122,49 +122,53 @@
 <!--/ article-->
 {% schema %}
     {
-    "name": "Page",
-    "thumb_url": "images/theme/page.png",
-    "description": "文章详情模板",
+    "name": "t:settings_schema.intranet_templates.page_name",
+    "thumb_url": "images/theme/${lang}/page.png",
+    "description": "t:settings_schema.intranet_templates.page_description",
     "sub_page_templates": ["page"],
     "settings": [
         {
           "id": "type",
           "type": "select",
           "default": "0",
-          "choices": [{"label":"博客文章","value":"0"},{"label":"项目案例","value":"1"},{"label":"其他","value":"2"}],
-          "label": "页面类型"
+          "choices": [
+            {"label":"t:settings_schema.intranet_templates.shared_type_choice_blog","value":"0"},
+            {"label":"t:settings_schema.intranet_templates.shared_type_choice_project","value":"1"},
+            {"label":"t:settings_schema.intranet_templates.shared_type_choice_other","value":"2"}
+          ],
+          "label": "t:settings_schema.intranet_templates.shared_type_label"
         },
         {
           "id": "tags",
           "type": "tag_picker",
           "multiple": true,
-          "label": "标签"
+          "label": "t:settings_schema.intranet_templates.shared_tags_label"
         },
         {
           "id": "thumb_url",
           "type": "image_picker",
           "ratio": "6:4",
           "width": 400,
-          "label": "封面图片"
+          "label": "t:settings_schema.intranet_templates.shared_thumb_image_label"
         },
         {
           "id": "title",
           "type": "text",
           "placeholder": "",
-          "label": "标题",
-          "info": "显示在正文上方的文章标题"
+          "label": "t:settings_schema.intranet_templates.shared_title_label",
+          "info": "t:settings_schema.intranet_templates.shared_title_info"
         },
         {
           "id": "description",
           "type": "text",
           "placeholder": "",
-          "label": "描述",
-          "info": "文章描述"
+          "label": "t:settings_schema.intranet_templates.shared_description_text_label",
+          "info": "t:settings_schema.intranet_templates.shared_description_text_info"
         },
         {
           "id": "content",
           "type": "richtext",
-          "label": "页面内容"
+          "label": "t:settings_schema.intranet_templates.shared_content_label"
         }
     ],
     "user_creatable": true,

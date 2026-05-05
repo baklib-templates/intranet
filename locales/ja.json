@@ -1,0 +1,91 @@
+{
+  "theme_label": "Intranet",
+  "theme_description": "社内ニュースやイベントの発信、ナレッジ共有、社員ハンドブック、企業文化の発信に使える社内ナレッジ共有プラットフォームです。",
+  "generic": {
+    "search": "👋 何をお探しですか？",
+    "search_from": "検索結果: ",
+    "all": "すべて",
+    "popular_reply": "人気のコメント",
+    "newest": "新着",
+    "newest_reply": "新着コメント",
+    "related": "関連",
+    "visit": "閲覧",
+    "vote": "投票",
+    "reply": "返信",
+    "comments": "コメント",
+    "comments_count": "{{ count }} 件のコメント",
+    "join_to": "返信するには登録が必要です。コミュニティに参加するには こちら",
+    "profile": "プロフィール",
+    "title": "タイトル",
+    "catalog": "カテゴリ",
+    "content": "本文",
+    "failed": "失敗",
+    "navigation": "ナビゲーション",
+    "recommend": "おすすめ",
+    "under_review": "コンテンツは審査中で、まだ公開されていません",
+    "under_review_post": "コンテンツは審査中です。承認後に他のユーザーへ公開されます。",
+    "under_comment": "コメントするにはログインしてください",
+    "popular": "人気",
+    "feedback": "フィードバック？",
+    "feedback_required": "フィードバック内容",
+    "tags": "タグ",
+    "home": "ホーム",
+    "back": "戻る",
+    "empty": "コンテンツがありません",
+    "published_at": "公開日",
+    "articles": "件",
+    "read_more": "もっと読む",
+    "load_more_replies": "さらに返信を読み込む",
+    "dashboard": "ダッシュボード",
+    "404": "404 ページが見つかりません",
+    "403": "403 アクセス権限がありません",
+    "copyright": "All rights reserved",
+    "current_version": "現在のバージョン",
+    "news_letter": "コミュニティに参加してディスカッションしよう",
+    "terms1": "投稿された内容は、管理者の審査を経てから公開されます。",
+    "terms2": "ご利用にあたっては関連する声明と利用規約を遵守してください：",
+    "disclaimer": "免責事項"
+  },
+  "placeholders": {
+    "search": "検索中...",
+    "input_feedback": "フィードバックを送信",
+    "input_password": "パスワードを入力",
+    "post_content": "投稿の本文"
+  },
+  "buttons": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "edit_again": "再編集",
+    "not_login": "ログインしていません",
+    "create_post": "投稿を作成",
+    "create_comment": "コメントを追加",
+    "join": "コミュニティに参加",
+    "edit_post": "投稿を編集",
+    "profile": "プロフィール",
+    "sso_login": "SSO ログイン",
+    "baklib_login": "Baklib アカウントでログイン",
+    "redirect_to": "ログインページへ移動中"
+  },
+  "prompts": {
+    "page_restricted": "このページは認証が必要です"
+  },
+  "errors": {
+    "create_failed": "作成に失敗しました"
+  },
+  "terms": {
+    "title": "免責事項",
+    "item_1": "投稿者によるすべてのコメントおよび画像は個人的な意見であり、本サイトの立場を表すものではありません。",
+    "item_2": "他の組織または個人が本サイトの記事を利用、転載、引用する場合は、著者および本サイトの同意を得る必要があります。",
+    "item_3": "投稿者が他のメディアからの内容を本サイトで再投稿する場合、それは情報共有を目的としたものであり、本サイトがその内容に同意したり、その正確性を保証するものではありません。",
+    "item_4": "投稿に著作権上の問題がある場合は、ただちにご連絡ください。本サイトは速やかに該当コンテンツを削除します。",
+    "item_5": "本サイトの管理者およびモデレーターは、事前の通知なく投稿を削除する権利を有します。"
+  },
+  "feed": {
+    "meta_title": "最近の更新",
+    "meta_description": "最近公開されたコンテンツのアクティビティとタイムライン。"
+  }
+}

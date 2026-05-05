@@ -251,9 +251,9 @@
 
 {% schema %}
 {
-    "name": "Forum",
-    "description": "论坛社区",
-    "thumb_url": "images/theme/forum.png",
+    "name": "t:settings_schema.intranet_templates.forum_name",
+    "description": "t:settings_schema.intranet_templates.forum_description",
+    "thumb_url": "images/theme/${lang}/forum.png",
     "sub_page_templates": ["post"],
     "settings": [
         {
@@ -261,18 +261,18 @@
             "type": "image_picker",
             "ratio": "1:1",
             "width": 100,
-            "label": "图标"
+            "label": "t:settings_schema.intranet_templates.shared_icon_label"
         },
         {
             "id": "tags",
             "type": "tag_picker",
             "multiple": true,
-            "label": "标签"
+            "label": "t:settings_schema.intranet_templates.shared_tags_label"
         },
         {
             "id": "description",
             "type": "textarea",
-            "label": "描述"
+            "label": "t:settings_schema.intranet_templates.shared_description_label"
         }
     ]
 }

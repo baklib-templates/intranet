@@ -48,7 +48,7 @@
           <li>
             <a href="{{ site.index_path }}" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
               <img src="{{ index_page.settings.icon |  default: default_icon }}" class="size-4.5 w-4.5 h-4.5 text-white"/>
-              <span class="sr-only">控制台</span>
+              <span class="sr-only">{{ 'generic.dashboard' | t }}</span>
             </a>
           </li>
           {% for channel in channels %}

@@ -28,22 +28,20 @@
           {% endfor %}
         {% endif %}
       </div>
-      {%# 反馈内容 %}
       {% if site.plugins.feedback.message_enabled %}
         {% if site.plugins.feedback.message_required %}
-          <div class="text-left">* 反馈内容</div>
+          <div class="text-left">* {{ 'generic.feedback_required' | t }}</div>
         {% endif %}
         <div class="mt-5">
           <textarea
             class="w-full resize-none rounded-lg border border-slate-200 bg-transparent p-2.5 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-gray-700 dark:hover:border-slate-400 dark:focus:border-accent max-h-20"
             name="feedback[message]"
-            placeholder="请输入反馈内容"></textarea>
-          {%# 提交按钮 %}
+            placeholder="{{ 'placeholders.input_feedback' | t }}"></textarea>
           <div class="flex justify-end mt-5">
             <input
               type="submit"
               class="inline-flex items-center justify-center px-5 py-2 tracking-wide text-center border rounded-lg cursor-pointer text-slate-900 dark:text-white dark:bg-teal-600 hover:bg-teal-300 focus:outline-none disabled:pointer-events-none"
-              value="提 交" />
+              value="{{ 'buttons.submit' | t }}" />
           </div>
         </div>
       {% endif %}

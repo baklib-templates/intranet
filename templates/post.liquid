@@ -138,27 +138,26 @@
 <!--/ article-->
 {% schema %}
   {
-    "name": "Post",
-    "description": "帖子详情模板",
-    "thumb_url": "images/theme/page.png",
-    "description": "Post detail",
+    "name": "t:settings_schema.intranet_templates.post_name",
+    "description": "t:settings_schema.intranet_templates.post_description",
+    "thumb_url": "images/theme/${lang}/page.png",
     "sub_page_templates": ["post"],
     "settings": [
         {
           "id": "tags",
           "type": "tag_picker",
           "multiple": true,
-          "label": "标签"
+          "label": "t:settings_schema.intranet_templates.shared_tags_label"
         },
         {
           "id": "title",
           "type": "text",
-          "label": "标题"
+          "label": "t:settings_schema.intranet_templates.shared_title_label"
         },
         {
           "id": "content",
           "type": "richtext",
-          "label": "页面内容"
+          "label": "t:settings_schema.intranet_templates.shared_content_label"
         }
     ],
     "user_creatable": true,

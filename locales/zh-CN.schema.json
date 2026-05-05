@@ -14,13 +14,13 @@
           "label": "版权备案信息",
           "placeholder": "蜀ICP备15035023号"
         },
-        "is_allow_feedback":{
+        "is_allow_feedback": {
           "label": "是否展示用户反馈"
         },
-        "is_allow_header":{
+        "is_allow_header": {
           "label": "是否展示页头Header部分"
         },
-        "is_allow_footer":{
+        "is_allow_footer": {
           "label": "是否展示页脚Footer部分"
         }
       }
@@ -47,23 +47,85 @@
     "page": {
       "name": "文章页面",
       "settings": {
-        "title":{
+        "title": {
           "label": "标题",
           "info": "显示在正文上方的文章标题"
         },
-        "description":{
+        "description": {
           "label": "摘要"
         },
-        "tags":{
+        "tags": {
           "label": "标签"
         },
-        "thumb_image_url":{
+        "thumb_image_url": {
           "label": "封面图"
         },
-        "content":{
+        "content": {
           "label": "页面内容"
         }
       }
+    },
+    "intranet": {
+      "is_allow_published_label": "是否开启先发后审",
+      "is_allow_published_info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
+      "logo_url_label": "站点 LOGO",
+      "default_avatar_label": "默认头像",
+      "default_avatar_info": "新注册用户未设置头像之前，显示该默认头像。",
+      "hot_tags_label": "热门标签",
+      "hot_tags_info": "用英文逗号隔开，且保证在【标签管理】中已添加了该标签。",
+      "is_allow_author_label": "文章是否显示作者信息",
+      "is_allow_feedback_label": "文章是否显示反馈表情",
+      "feedback_useful_type_label": "首选反馈表情",
+      "feedback_useful_type_placeholder": "在【应用设置】→【反馈设置】中复制过来",
+      "slogan_label": "站点口号",
+      "description_label": "站点描述",
+      "copyright_info_label": "版权信息",
+      "copyright_info_placeholder": "Tanmer Inc. All Rights Reserved."
+    },
+    "intranet_templates": {
+      "shared_icon_label": "图标",
+      "shared_tags_label": "标签",
+      "shared_description_label": "描述",
+      "shared_description_text_label": "描述",
+      "shared_description_text_info": "在列表与预览中展示的简短描述。",
+      "shared_thumb_image_label": "封面图片",
+      "shared_thumb_url_label": "封面图片",
+      "shared_title_label": "标题",
+      "shared_title_info": "显示在正文上方的文章标题。",
+      "shared_content_label": "页面内容",
+      "shared_html_label": "HTML 代码",
+      "shared_html_info": "在首页添加自定义 HTML 代码。",
+      "shared_type_label": "页面类型",
+      "shared_type_choice_blog": "博客文章",
+      "shared_type_choice_project": "项目案例",
+      "shared_type_choice_other": "其他",
+      "shared_event_date_label": "活动日期",
+      "shared_event_date_info": "本次活动的时间。",
+      "shared_rate_label": "评分",
+      "shared_price_label": "价格",
+      "channel_cover_label": "主页封面",
+      "channel_name": "Channel",
+      "channel_description": "栏目主题自定义栏目",
+      "changelog_name": "Changelog",
+      "changelog_description": "日志/公告等栏目",
+      "events_name": "Events",
+      "events_description": "活动会议栏目",
+      "event_name": "Event",
+      "event_description": "活动详情模板",
+      "faqs_name": "Faqs",
+      "faqs_description": "FAQ 多 Tab 页面列表",
+      "forum_name": "Forum",
+      "forum_description": "论坛社区",
+      "post_name": "Post",
+      "post_description": "帖子详情模板",
+      "products_name": "Products",
+      "products_description": "产品/项目/案例栏目",
+      "product_name": "Product",
+      "product_description": "产品/项目/案例详情模板",
+      "page_name": "Page",
+      "page_description": "文章详情模板",
+      "index_name": "Index",
+      "index_description": "首页"
     }
   }
 }

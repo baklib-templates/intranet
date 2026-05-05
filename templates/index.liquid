@@ -39,62 +39,13 @@
   
 </div>
 
-{% if site.settings.is_open_intro_guide and page.path == '/' %}
-  <!-- Start Intro.js -->
-  <script>
-    introJs().setOptions({
-      showProgress: true,
-      dontShowAgain: true,
-      steps: [{
-        title: 'Personal Blog Deme 站点',
-        intro: '通过本指引，你可以快速了解页面模板的结构，并对应修改后端配置 👋'
-      },
-      {
-        title: 'snippets/_header.liquid',
-        element: document.querySelector('#header'),
-        intro: '页头部分可配置：<ol><li>1. 站点图标</li><li> 2.站点名称</li><li>3. 自定义导航菜单</li></ol>'
-      },
-      {
-        title: 'templates/index.liquid',
-        element: document.querySelector('#hero'),
-        intro: '首页Hero部分在【首页】->【内容编辑】中设置属性：<ol><li>1）首页头像</li><li>2）站点口号</li><li>3）站点介绍</li></ol>'
-      },
-      {
-        title: 'snippets/_projects.liquid',
-        element: document.querySelector('#projects'),
-        intro: '页面列表：在【页面管理】中设置的页面类型为【项目案例】的内容将展示在这里。'
-      },
-      {
-        title: 'snippets/_posts.liquid',
-        element: document.querySelector('#posts'),
-        intro: '页面列表：在【页面管理】中设置的页面类型为【博客文章】的内容将展示在这里。'
-      },
-      {
-        title: 'snippets/_search_form.liquid',
-        element: document.querySelector('#search_from'),
-        intro: '设置全文搜索框',
-        position: 'top'
-      },
-      {
-        element: document.querySelector('#footer'),
-        intro: '设置页脚部分',
-        position: 'top'
-      },
-      {
-        intro: '🎉🎉🎉 恭喜你！<p>一个简单的个人站点Demo就呈现在你面前了，而创建这个站点只需要 3 分钟时间。</p><p>想要了解更多，请参考<a href="/s/get-started" style="color:blue;font-size:600;">教程</a>。</p>'
-      }]
-    }).start();
-  </script>
-  <!-- End Intro.js -->
-{% endif %}
-
 {% schema %}
   {
-    "name": "Index",
-    "description": "首页",
-    "thumb_url": "images/theme/index.png",
+    "name": "t:settings_schema.intranet_templates.index_name",
+    "description": "t:settings_schema.intranet_templates.index_description",
+    "thumb_url": "images/theme/${lang}/index.png",
     "preview_image_urls": [
-      "images/theme/index.png"
+      "images/theme/${lang}/index.png"
     ],
     "sub_page_templates": ["events", "forum", "changelog", "products", "faqs", "channel"],
     "settings": [
@@ -103,13 +54,13 @@
         "type": "image_picker",
         "ratio": "1:1",
         "width": 100,
-        "label": "图标"
+        "label": "t:settings_schema.intranet_templates.shared_icon_label"
       },
       {
         "id": "features",
         "type": "html",
-        "label": "HTML 代码",
-        "info": "在首页添加自定义 HTML 代码",
+        "label": "t:settings_schema.intranet_templates.shared_html_label",
+        "info": "t:settings_schema.intranet_templates.shared_html_info",
         "rows": 10
       }
     ]

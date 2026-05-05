@@ -1,0 +1,131 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "Paramètres de base",
+      "settings": {
+        "logo_url": {
+          "label": "Logo",
+          "info": "Ratio recommandé 3:1"
+        },
+        "slogan": {
+          "label": "Slogan"
+        },
+        "copyright_info": {
+          "label": "Mention de copyright",
+          "placeholder": "Tanmer Inc."
+        },
+        "is_allow_feedback": {
+          "label": "Autoriser les retours"
+        },
+        "is_allow_header": {
+          "label": "Afficher l'en-tête"
+        },
+        "is_allow_footer": {
+          "label": "Afficher le pied de page"
+        }
+      }
+    },
+    "nav": {
+      "nav_title": "Navigation",
+      "head_title": "Métadonnées du <head>",
+      "settings": {
+        "header_menu_html": {
+          "label": "Menu d'en-tête",
+          "info": "Prend en charge HTML et classes TailwindCSS"
+        },
+        "footer_menu_html": {
+          "label": "Menu de pied de page",
+          "info": "Prend en charge HTML et classes TailwindCSS"
+        },
+        "head_html": {
+          "label": "Code HTML <head>",
+          "info": "Cette portion est insérée dans la balise <head> du site. Veuillez utiliser un HTML standard.",
+          "placeholder": "Référence à des fichiers css/js externes, balises meta, ex. <meta name='baidu_verification' content='CdOTMO2h2' />"
+        }
+      }
+    },
+    "page": {
+      "name": "Page",
+      "settings": {
+        "title": {
+          "label": "Titre de la page",
+          "info": "Titre affiché au-dessus du contenu"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "tags": {
+          "label": "Tags"
+        },
+        "thumb_image_url": {
+          "label": "Image de couverture"
+        },
+        "content": {
+          "label": "Contenu de la page"
+        }
+      }
+    },
+    "intranet": {
+      "is_allow_published_label": "Publier avant validation",
+      "is_allow_published_info": "Si activé, les contributions sont publiées immédiatement ; sinon, l'équipe doit les valider avant publication.",
+      "logo_url_label": "Logo du site",
+      "default_avatar_label": "Avatar par défaut",
+      "default_avatar_info": "Affiché pour les membres qui n'ont pas configuré d'avatar.",
+      "hot_tags_label": "Tags populaires",
+      "hot_tags_info": "Séparés par des virgules ; les tags doivent déjà exister dans la gestion des tags.",
+      "is_allow_author_label": "Afficher l'auteur·rice sur les publications",
+      "is_allow_feedback_label": "Afficher les emojis de réaction sur les publications",
+      "feedback_useful_type_label": "Emoji de retour principal",
+      "feedback_useful_type_placeholder": "Copiez depuis Paramètres de l'app → Retours",
+      "slogan_label": "Slogan du site",
+      "description_label": "Description du site",
+      "copyright_info_label": "Mention de copyright",
+      "copyright_info_placeholder": "Tanmer Inc. Tous droits réservés."
+    },
+    "intranet_templates": {
+      "shared_icon_label": "Icône",
+      "shared_tags_label": "Tags",
+      "shared_description_label": "Description",
+      "shared_description_text_label": "Description",
+      "shared_description_text_info": "Description courte affichée dans les listes et aperçus.",
+      "shared_thumb_image_label": "Image de couverture",
+      "shared_thumb_url_label": "Image de couverture",
+      "shared_title_label": "Titre",
+      "shared_title_info": "En-tête affiché au-dessus du contenu.",
+      "shared_content_label": "Contenu de la page",
+      "shared_html_label": "Code HTML",
+      "shared_html_info": "Insérer du HTML personnalisé sur la page d'accueil.",
+      "shared_type_label": "Type de page",
+      "shared_type_choice_blog": "Article de blog",
+      "shared_type_choice_project": "Projet / cas",
+      "shared_type_choice_other": "Autre",
+      "shared_event_date_label": "Date de l'événement",
+      "shared_event_date_info": "Date à laquelle l'événement a lieu.",
+      "shared_rate_label": "Note",
+      "shared_price_label": "Prix",
+      "channel_cover_label": "Couverture du canal",
+      "channel_name": "Channel",
+      "channel_description": "Section de canal personnalisable",
+      "changelog_name": "Changelog",
+      "changelog_description": "Notes de version et annonces",
+      "events_name": "Events",
+      "events_description": "Liste des activités et événements",
+      "event_name": "Event",
+      "event_description": "Modèle de détail d'événement",
+      "faqs_name": "FAQs",
+      "faqs_description": "Liste FAQ multi-onglets",
+      "forum_name": "Forum",
+      "forum_description": "Forum communautaire",
+      "post_name": "Post",
+      "post_description": "Détail d'une publication de forum",
+      "products_name": "Products",
+      "products_description": "Liste de produits / projets / cas",
+      "product_name": "Product",
+      "product_description": "Détail produit / projet / cas",
+      "page_name": "Page",
+      "page_description": "Modèle d'article générique",
+      "index_name": "Index",
+      "index_description": "Page d'accueil"
+    }
+  }
+}

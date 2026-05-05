@@ -1,0 +1,131 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "基本設定",
+      "settings": {
+        "logo_url": {
+          "label": "ロゴ",
+          "info": "推奨アスペクト比は 3:1"
+        },
+        "slogan": {
+          "label": "スローガン"
+        },
+        "copyright_info": {
+          "label": "著作権表示",
+          "placeholder": "Tanmer Inc."
+        },
+        "is_allow_feedback": {
+          "label": "フィードバックを有効化"
+        },
+        "is_allow_header": {
+          "label": "ヘッダーを表示"
+        },
+        "is_allow_footer": {
+          "label": "フッターを表示"
+        }
+      }
+    },
+    "nav": {
+      "nav_title": "ナビゲーション",
+      "head_title": "Head メタ設定",
+      "settings": {
+        "header_menu_html": {
+          "label": "ヘッダーメニュー",
+          "info": "HTML タグおよび TailwindCSS クラスをサポート"
+        },
+        "footer_menu_html": {
+          "label": "フッターメニュー",
+          "info": "HTML タグおよび TailwindCSS クラスをサポート"
+        },
+        "head_html": {
+          "label": "Head HTML コード",
+          "info": "この内容はサイトの <head> タグに埋め込まれます。標準的な HTML を使用してください。",
+          "placeholder": "外部 css/js ファイルや meta タグなど。例: <meta name='baidu_verification' content='CdOTMO2h2' />"
+        }
+      }
+    },
+    "page": {
+      "name": "ページ",
+      "settings": {
+        "title": {
+          "label": "ページタイトル",
+          "info": "本文の上に表示されるタイトル"
+        },
+        "description": {
+          "label": "概要"
+        },
+        "tags": {
+          "label": "タグ"
+        },
+        "thumb_image_url": {
+          "label": "カバー画像"
+        },
+        "content": {
+          "label": "ページ本文"
+        }
+      }
+    },
+    "intranet": {
+      "is_allow_published_label": "審査前に公開",
+      "is_allow_published_info": "有効にすると投稿は即時公開されます。無効にすると、運営者の承認後に公開されます。",
+      "logo_url_label": "サイトロゴ",
+      "default_avatar_label": "デフォルトアバター",
+      "default_avatar_info": "アバターを設定していないメンバーに表示されます。",
+      "hot_tags_label": "人気タグ",
+      "hot_tags_info": "カンマ区切り。タグはあらかじめタグ管理画面に登録しておく必要があります。",
+      "is_allow_author_label": "投稿に著者情報を表示",
+      "is_allow_feedback_label": "投稿にリアクション絵文字を表示",
+      "feedback_useful_type_label": "メインのフィードバック絵文字",
+      "feedback_useful_type_placeholder": "アプリ設定 → フィードバック設定 からコピー",
+      "slogan_label": "サイトスローガン",
+      "description_label": "サイト説明",
+      "copyright_info_label": "著作権表示",
+      "copyright_info_placeholder": "Tanmer Inc. All rights reserved."
+    },
+    "intranet_templates": {
+      "shared_icon_label": "アイコン",
+      "shared_tags_label": "タグ",
+      "shared_description_label": "説明",
+      "shared_description_text_label": "説明",
+      "shared_description_text_info": "リストやプレビューに表示される短い説明文。",
+      "shared_thumb_image_label": "カバー画像",
+      "shared_thumb_url_label": "カバー画像",
+      "shared_title_label": "タイトル",
+      "shared_title_info": "本文の上に表示される見出し。",
+      "shared_content_label": "ページ本文",
+      "shared_html_label": "HTML コード",
+      "shared_html_info": "ホームページにカスタム HTML を埋め込みます。",
+      "shared_type_label": "ページタイプ",
+      "shared_type_choice_blog": "ブログ記事",
+      "shared_type_choice_project": "プロジェクト / 事例",
+      "shared_type_choice_other": "その他",
+      "shared_event_date_label": "イベント日",
+      "shared_event_date_info": "イベントの開催日。",
+      "shared_rate_label": "評価",
+      "shared_price_label": "価格",
+      "channel_cover_label": "チャネルカバー",
+      "channel_name": "Channel",
+      "channel_description": "カスタマイズ可能なチャネルセクション",
+      "changelog_name": "Changelog",
+      "changelog_description": "リリースノート / お知らせ",
+      "events_name": "Events",
+      "events_description": "アクティビティとイベントの一覧",
+      "event_name": "Event",
+      "event_description": "イベント詳細テンプレート",
+      "faqs_name": "FAQs",
+      "faqs_description": "複数タブの FAQ リスト",
+      "forum_name": "Forum",
+      "forum_description": "コミュニティフォーラム",
+      "post_name": "Post",
+      "post_description": "フォーラム投稿の詳細",
+      "products_name": "Products",
+      "products_description": "プロダクト / プロジェクト / 事例のリスト",
+      "product_name": "Product",
+      "product_description": "プロダクト / プロジェクト / 事例の詳細",
+      "page_name": "Page",
+      "page_description": "汎用記事の詳細",
+      "index_name": "Index",
+      "index_description": "ホームページ"
+    }
+  }
+}

@@ -13,6 +13,7 @@
     "vote": "投票",
     "reply": "回复",
     "comments": "评论",
+    "comments_count": "{{ count }} 条评论",
     "join_to": "你需要注册或登录方可评论，加入我们",
     "profile": "个人中心",
     "catalog": "分类",
@@ -22,9 +23,11 @@
     "navigation": "导航",
     "recommend": "站长推荐",
     "under_review": "内容正在审核中，不对外展示",
+    "under_review_post": "内容正在审核，审核通过后其他人可查看！",
     "under_comment": "登录以后，参与评论",
     "popular": "热门",
     "feedback": "提交反馈",
+    "feedback_required": "反馈内容",
     "tags": "标签",
     "home": "首页",
     "back": "返回",
@@ -33,24 +36,29 @@
     "articles": "篇文章",
     "dashboard": "控制台",
     "read_more": "阅读更多",
+    "load_more_replies": "查看更多回复",
     "404": "404 页面找不到",
     "403": "403 无访问权限",
     "copyright": "版权所有",
     "current_version": "当前版本",
     "news_letter": "加入社区，参与讨论！",
     "terms1": "提交的内容，需要后台管理员审核以后方能在前端展示。",
-    "terms2": "平台使用者须遵循相关声明和条款："
+    "terms2": "平台使用者须遵循相关声明和条款：",
+    "disclaimer": "免责声明"
   },
   "placeholders": {
     "search": "站内搜索",
     "input_feedback": "请与我们留言",
-    "input_password": "输入密码"
+    "input_password": "输入密码",
+    "post_content": "请输入内容"
   },
   "buttons": {
     "login": "登录",
     "submit": "提交",
     "cancel": "取消",
     "delete": "删除",
+    "edit": "编辑",
+    "edit_again": "再次编辑",
     "logout": "退出",
     "not_login": "你还未登录",
     "create_post": "发布帖子",
@@ -59,9 +67,25 @@
     "edit_post": "编辑帖子",
     "profile": "个人中心",
     "sso_login": "SSO 登录",
-    "baklib_login": "Baklib 账号登录"
+    "baklib_login": "Baklib 账号登录",
+    "redirect_to": "正在跳转到登录"
   },
   "prompts": {
     "page_restricted": "本页面需要认证才可以被访问"
+  },
+  "errors": {
+    "create_failed": "创建失败"
+  },
+  "terms": {
+    "title": "免责声明",
+    "item_1": "发表者所有言论和图片纯属个人意见，与本站立场无关；",
+    "item_2": "其他单位或个人使用、转载或引用本站文章时必须征得作者和本站的同意；",
+    "item_3": "发表者若有部分内容转载自其它媒体并在本站发布，转载的目的在于传递更多信息，并不代表本站赞同其观点和对其真实性负责；",
+    "item_4": "部分帖子内容如有涉及版权问题，请立即告知本站，本站将及时予以删除；",
+    "item_5": "本站管理员和版主保留不事先通知发帖者而删除帖子的权利。"
+  },
+  "feed": {
+    "meta_title": "最近更新",
+    "meta_description": "站点最新动态信息流，按时间线展示最近更新内容。"
   }
 }

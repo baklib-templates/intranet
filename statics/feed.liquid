@@ -1,8 +1,8 @@
 
 {% assign pages = site.pages['/'].pages_in_list | order_by: '-created_at' %}
 
-{% set_meta_title 'Baklib最近更新' %}
-{% set_meta_description 'Baklib最近更新信息，Baklib信息流，最近更新数据时间轴。' %}
+{% set_meta_title 'feed.meta_title' | t %}
+{% set_meta_description 'feed.meta_description' | t %}
 {% set_meta_keywords 'Baklib,Recent News' %}
 <!-- cruip-mosaic-html/feed.html -->
 <main class="grow">

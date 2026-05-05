@@ -55,10 +55,10 @@
       <div class="relative p-5 border rounded-md bg-slate-200 dark:bg-slate-800 border-slate-600">
         <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
             <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">
-              <span>再次编辑</span>
+              <span>{{ 'buttons.edit_again' | t }}</span>
             </a>
             {% form_tag 'delete_page', page %}
-              <button class="btn btn-ghost"> 删除 </button>
+              <button class="btn btn-ghost"> {{ 'buttons.delete' | t }} </button>
             {% endform_tag %}
         </div>
       </div>
@@ -66,7 +66,7 @@
   {% endif %}
 
   {% unless page.published_at %}
-    <p class="mt-4 text-sm font-bold text-info"> 内容正在审核，审核通过后其他人可查看 ! </p>
+    <p class="mt-4 text-sm font-bold text-info"> {{ 'generic.under_review_post' | t }} </p>
   {% endunless %}
   
   <div class="my-4">
@@ -75,7 +75,7 @@
 
   <!-- Comments list -->
   <div data-controller="load_more">
-    <h4 class="mb-2 font-bold "> {{ page.comments | size }} 条评论 </h4>
+    <h4 class="mb-2 font-bold "> {{ 'generic.comments_count' | t: count: page.comments.size }} </h4>
     <!-- Comments (1st level) -->
     {% assign answers = page.comments | roots  %}
     <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
@@ -90,7 +90,7 @@
       <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
       data-load_more-target="button"
       >
-        查看更多回复
+        {{ 'generic.load_more_replies' | t }}
       </button>
     {% endif %}
   </div>
@@ -100,54 +100,58 @@
 <!--/ article-->
 {% schema %}
     {
-    "name": "Event",
-    "thumb_url": "images/theme/event.png",
-    "description": "活动详情模板",
+    "name": "t:settings_schema.intranet_templates.event_name",
+    "thumb_url": "images/theme/${lang}/event.png",
+    "description": "t:settings_schema.intranet_templates.event_description",
     "sub_page_templates": [],
     "settings": [
         {
           "id": "type",
           "type": "select",
           "default": "0",
-          "choices": [{"label":"博客文章","value":"0"},{"label":"项目案例","value":"1"},{"label":"其他","value":"2"}],
-          "label": "页面类型"
+          "choices": [
+            {"label":"t:settings_schema.intranet_templates.shared_type_choice_blog","value":"0"},
+            {"label":"t:settings_schema.intranet_templates.shared_type_choice_project","value":"1"},
+            {"label":"t:settings_schema.intranet_templates.shared_type_choice_other","value":"2"}
+          ],
+          "label": "t:settings_schema.intranet_templates.shared_type_label"
         },
         {
           "id": "tags",
           "type": "tag_picker",
           "multiple": true,
-          "label": "标签"
+          "label": "t:settings_schema.intranet_templates.shared_tags_label"
         },
         {
           "id": "date",
           "type": "date",
-          "label": "时间"
+          "label": "t:settings_schema.intranet_templates.shared_event_date_label"
         },
         {
           "id": "thumb_url",
           "type": "image_picker",
           "ratio": "6:4",
           "width": 400,
-          "label": "封面图片"
+          "label": "t:settings_schema.intranet_templates.shared_thumb_image_label"
         },
         {
           "id": "title",
           "type": "text",
           "placeholder": "",
-          "label": "标题",
-          "info": "显示在正文上方的文章标题"
+          "label": "t:settings_schema.intranet_templates.shared_title_label",
+          "info": "t:settings_schema.intranet_templates.shared_title_info"
         },
         {
           "id": "description",
           "type": "text",
           "placeholder": "",
-          "label": "描述",
-          "info": "文章描述"
+          "label": "t:settings_schema.intranet_templates.shared_description_text_label",
+          "info": "t:settings_schema.intranet_templates.shared_description_text_info"
         },
         {
           "id": "content",
           "type": "richtext",
-          "label": "页面内容"
+          "label": "t:settings_schema.intranet_templates.shared_content_label"
         }
     ],
     "user_creatable": true,

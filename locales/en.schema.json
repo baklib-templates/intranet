@@ -14,13 +14,13 @@
           "label": "Copyright info",
           "placeholder": "Tanmer Inc."
         },
-        "is_allow_feedback":{
+        "is_allow_feedback": {
           "label": "is allow feedback"
         },
-        "is_allow_header":{
+        "is_allow_header": {
           "label": "is allow header"
         },
-        "is_allow_footer":{
+        "is_allow_footer": {
           "label": "is allow footer"
         }
       }
@@ -47,23 +47,85 @@
     "page": {
       "name": "Page",
       "settings": {
-        "title":{
+        "title": {
           "label": "Page Title",
-          "info": "Title show in content"
+          "info": "Title shown above the body"
         },
-        "description":{
+        "description": {
           "label": "Description"
         },
-        "tags":{
+        "tags": {
           "label": "Tags"
         },
-        "thumb_image_url":{
-          "label": "Thumb image URL"
+        "thumb_image_url": {
+          "label": "Cover image"
         },
-        "content":{
-          "label": "Page Content"
+        "content": {
+          "label": "Page content"
         }
       }
+    },
+    "intranet": {
+      "is_allow_published_label": "Publish before review",
+      "is_allow_published_info": "When enabled, submissions go live immediately; when disabled, staff approve first.",
+      "logo_url_label": "Site logo",
+      "default_avatar_label": "Default avatar",
+      "default_avatar_info": "Shown for members who have not set an avatar.",
+      "hot_tags_label": "Popular tags",
+      "hot_tags_info": "Comma separated; tags must already exist in Tags management.",
+      "is_allow_author_label": "Show author info on posts",
+      "is_allow_feedback_label": "Show reaction emoji on posts",
+      "feedback_useful_type_label": "Primary feedback emoji",
+      "feedback_useful_type_placeholder": "Copy from App settings → Feedback",
+      "slogan_label": "Site slogan",
+      "description_label": "Site description",
+      "copyright_info_label": "Copyright line",
+      "copyright_info_placeholder": "Tanmer Inc. All rights reserved."
+    },
+    "intranet_templates": {
+      "shared_icon_label": "Icon",
+      "shared_tags_label": "Tags",
+      "shared_description_label": "Description",
+      "shared_description_text_label": "Description",
+      "shared_description_text_info": "Short description shown in lists and previews.",
+      "shared_thumb_image_label": "Cover image",
+      "shared_thumb_url_label": "Cover image",
+      "shared_title_label": "Title",
+      "shared_title_info": "Headline shown above the body.",
+      "shared_content_label": "Page content",
+      "shared_html_label": "HTML code",
+      "shared_html_info": "Embed custom HTML on the home page.",
+      "shared_type_label": "Page type",
+      "shared_type_choice_blog": "Blog post",
+      "shared_type_choice_project": "Project / case",
+      "shared_type_choice_other": "Other",
+      "shared_event_date_label": "Event date",
+      "shared_event_date_info": "Date when this event takes place.",
+      "shared_rate_label": "Rating",
+      "shared_price_label": "Price",
+      "channel_cover_label": "Channel cover",
+      "channel_name": "Channel",
+      "channel_description": "Customizable channel section",
+      "changelog_name": "Changelog",
+      "changelog_description": "Release notes and announcements",
+      "events_name": "Events",
+      "events_description": "Activities and events listing",
+      "event_name": "Event",
+      "event_description": "Event detail template",
+      "faqs_name": "FAQs",
+      "faqs_description": "Multi-tab FAQ listing",
+      "forum_name": "Forum",
+      "forum_description": "Community forum listing",
+      "post_name": "Post",
+      "post_description": "Forum post detail",
+      "products_name": "Products",
+      "products_description": "Products / projects / cases listing",
+      "product_name": "Product",
+      "product_description": "Product / project / case detail",
+      "page_name": "Page",
+      "page_description": "Generic article detail",
+      "index_name": "Index",
+      "index_description": "Site home page"
     }
   }
 }

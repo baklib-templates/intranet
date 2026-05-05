@@ -6,11 +6,11 @@
         <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
             <div class="space-y-1 shrink-0">
                 <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-700 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
-                    <span class="text-xs">投票</span>
+                    <span class="text-xs">{{ 'generic.vote' | t }}</span>
                     <span class="text-xs font-medium text-center text-indigo-500 grow">{{ page | feedback_type_count: site.settings.feedback_useful_type }}</span>
                 </button>
                 <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-700 dark:border-slate-700 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
-                    <span class="text-xs">回复</span>
+                    <span class="text-xs">{{ 'generic.reply' | t }}</span>
                     <span class="text-xs font-medium text-center text-indigo-500 grow">{{ page.comments | roots | size }}</span>
                 </button>
             </div>

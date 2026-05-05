@@ -1,0 +1,91 @@
+{
+  "theme_label": "Intranet",
+  "theme_description": "Plateforme interne de partage des connaissances pour publier les actualités, les événements, partager les retours d'expérience, le manuel collaborateur et la culture d'entreprise.",
+  "generic": {
+    "search": "👋 Que cherchez-vous ?",
+    "search_from": "Tous les résultats pour : ",
+    "all": "Tous",
+    "popular_reply": "Commentaires populaires",
+    "newest": "Plus récents",
+    "newest_reply": "Commentaires récents",
+    "related": "Liés",
+    "visit": "Vues",
+    "vote": "Voter",
+    "reply": "Répondre",
+    "comments": "commentaires",
+    "comments_count": "{{ count }} commentaires",
+    "join_to": "Inscrivez-vous pour répondre — rejoignez la communauté",
+    "profile": "Profil",
+    "title": "Titre",
+    "catalog": "Catégorie",
+    "content": "Contenu",
+    "failed": "Échec",
+    "navigation": "Navigation",
+    "recommend": "Recommandé",
+    "under_review": "Le contenu est en cours de modération et n'est pas encore public",
+    "under_review_post": "Le contenu est en cours de modération et sera visible après validation.",
+    "under_comment": "Connectez-vous pour commenter",
+    "popular": "Populaire",
+    "feedback": "Avis ?",
+    "feedback_required": "Contenu du retour",
+    "tags": "Tags",
+    "home": "Accueil",
+    "back": "Retour",
+    "empty": "Aucun contenu",
+    "published_at": "Publié le",
+    "articles": "articles",
+    "read_more": "Lire la suite",
+    "load_more_replies": "Charger plus de réponses",
+    "dashboard": "Tableau de bord",
+    "404": "404 introuvable",
+    "403": "403 accès refusé",
+    "copyright": "Tous droits réservés",
+    "current_version": "Version actuelle",
+    "news_letter": "Rejoignez la communauté et participez à la discussion",
+    "terms1": "Le contenu soumis doit être validé par un administrateur avant publication.",
+    "terms2": "Les utilisateurs doivent respecter les déclarations et conditions applicables :",
+    "disclaimer": "Avertissement"
+  },
+  "placeholders": {
+    "search": "Rechercher...",
+    "input_feedback": "Envoyer un retour",
+    "input_password": "Saisissez votre mot de passe",
+    "post_content": "Contenu de la publication"
+  },
+  "buttons": {
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "submit": "Envoyer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "edit_again": "Modifier à nouveau",
+    "not_login": "Vous n'êtes pas connecté",
+    "create_post": "Créer une publication",
+    "create_comment": "Ajouter un commentaire",
+    "join": "Rejoindre la communauté",
+    "edit_post": "Modifier la publication",
+    "profile": "Profil",
+    "sso_login": "Connexion SSO",
+    "baklib_login": "Connexion via Baklib",
+    "redirect_to": "Redirection vers la connexion"
+  },
+  "prompts": {
+    "page_restricted": "Cette page nécessite une authentification"
+  },
+  "errors": {
+    "create_failed": "Échec de la création"
+  },
+  "terms": {
+    "title": "Avertissement",
+    "item_1": "Tous les commentaires et images publiés représentent des opinions strictement personnelles et n'engagent pas le site.",
+    "item_2": "Toute autre organisation ou personne souhaitant utiliser, reproduire ou citer des articles doit obtenir l'accord de l'auteur·rice et du site.",
+    "item_3": "Si l'auteur·rice publie un contenu repris d'autres médias, c'est uniquement à titre informatif ; cela ne signifie pas que le site approuve ces contenus ni n'en garantit l'exactitude.",
+    "item_4": "Si certains contenus posent un problème de droits d'auteur, merci de nous le signaler immédiatement afin que nous les retirions sans délai.",
+    "item_5": "Les administrateurs et modérateurs se réservent le droit de supprimer toute publication sans préavis."
+  },
+  "feed": {
+    "meta_title": "Mises à jour récentes",
+    "meta_description": "Flux d'activité et chronologie des derniers contenus publiés."
+  }
+}
