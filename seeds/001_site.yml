@@ -1,0 +1,18 @@
+site:
+  language: "en"
+  time_zone: "UTC"
+  favicon: "images/thumbnail.png"
+  settings:
+    logo_url: "images/logo.png"
+    default_avatar: "images/avatar.svg"
+    slogan: "Your internal knowledge hub — news, events, and culture in one place"
+    description: "Browse channels for announcements, FAQs, forums, and resources. Customize each section from Page settings."
+    is_allow_published: false
+    is_allow_author: true
+    is_allow_feedback: true
+    feedback_useful_type: "😊"
+    hot_tags: "announcements,events,hr,it-support"
+    header_menu_html: "<a class='underline text-slate-500 hover:no-underline' href='/'>Home</a> <a class='underline text-slate-500 hover:no-underline ml-3' href='/s/feed'>Feed</a> <a class='underline text-slate-500 hover:no-underline ml-3' href='/s/terms'>Terms</a>"
+    footer_menu_html: "<li><a class='underline text-slate-500 hover:no-underline' href='/'>Home</a></li><li><a class='underline text-slate-500 hover:no-underline' href='/s/terms'>Terms</a></li>"
+    head_html: ""
+    copyright_info: "Powered by Baklib Intranet"

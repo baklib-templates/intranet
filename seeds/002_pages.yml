@@ -1,0 +1,119 @@
+pages:
+  name: "Intranet"
+  slug: "index"
+  template_name: "index"
+  settings:
+    features: |
+      <section class="max-w-3xl mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400">
+        <p class="text-base">Welcome to your intranet home. Open a channel below or edit this HTML block under <strong>Home → Settings → HTML code</strong>.</p>
+      </section>
+  children:
+    - name: "Channel"
+      slug: "channel"
+      template_name: "channel"
+      settings:
+        description: "Policies, onboarding packs, and department updates."
+        thumb_image_url: "images/bg.jpg"
+        icon: "images/company-icon-01.svg"
+      children:
+        - name: "Employee handbook — getting started"
+          slug: "handbook-getting-started"
+          template_name: "page"
+          settings:
+            type: "0"
+            title: "Employee handbook — getting started"
+            description: "A sample article living under Channel."
+            thumb_url: "images/content.png"
+            content: "<p>This is placeholder content for your handbook. Replace it from the page editor.</p>"
+        - name: "IT acceptable use policy"
+          slug: "acceptable-use-policy"
+          template_name: "page"
+          settings:
+            type: "0"
+            title: "IT acceptable use policy"
+            description: "Outline device and network expectations."
+            content: "<p>Add your policy text here. You can attach downloads and embed videos from the editor.</p>"
+
+    - name: "Notifications"
+      slug: "notifications"
+      template_name: "changelog"
+      settings:
+        description: "Product updates, maintenance windows, and company announcements."
+        icon: "images/company-icon-03.svg"
+      children:
+        - name: "Welcome — intranet is live"
+          slug: "welcome-intranet-live"
+          template_name: "post"
+          settings:
+            title: "Welcome — your intranet is live"
+            content: "<p>We will publish release notes and announcements here. Subscribe via your usual channels.</p>"
+
+    - name: "Events"
+      slug: "events"
+      template_name: "events"
+      settings:
+        description: "Town halls, trainings, and meetups."
+        icon: "images/company-icon-02.svg"
+      children:
+        - name: "Quarterly town hall"
+          slug: "quarterly-town-hall"
+          template_name: "event"
+          settings:
+            type: "2"
+            title: "Quarterly town hall"
+            date: "2026-06-18"
+            description: "Company-wide updates and Q&A."
+            thumb_url: "images/event-thumb.jpg"
+            content: "<p>Add agenda, dial-in links, and recordings here after the session.</p>"
+
+    - name: "FAQs"
+      slug: "faqs"
+      template_name: "faqs"
+      settings:
+        description: "Answers to common HR and IT questions."
+        icon: "images/folder.svg"
+      children:
+        - name: "How do I request VPN access?"
+          slug: "faq-vpn-access"
+          template_name: "post"
+          settings:
+            title: "How do I request VPN access?"
+            content: "<p>Open a ticket with IT and include your manager’s approval. Typical turnaround is one business day.</p>"
+        - name: "Where do I submit expense reports?"
+          slug: "faq-expense-reports"
+          template_name: "post"
+          settings:
+            title: "Where do I submit expense reports?"
+            content: "<p>Use the finance portal linked from the employee dashboard. Attach receipts as PDF or photos.</p>"
+
+    - name: "Forum"
+      slug: "forum"
+      template_name: "forum"
+      settings:
+        description: "Ask questions and share ideas with colleagues."
+        icon: "images/group-avatar-01.png"
+      children:
+        - name: "Introducing the forum — say hello"
+          slug: "forum-say-hello"
+          template_name: "post"
+          settings:
+            title: "Introducing the forum — say hello"
+            content: "<p>Use this space for discussions that do not belong in a formal doc. Be respectful and tag topics when it helps others find threads.</p>"
+
+    - name: "Products"
+      slug: "products"
+      template_name: "products"
+      settings:
+        description: "Highlights from products, projects, and customer stories."
+        icon: "images/category-01.png"
+      children:
+        - name: "Sample product spotlight"
+          slug: "sample-product-spotlight"
+          template_name: "product"
+          settings:
+            title: "Sample product spotlight"
+            description: "Replace with a real launch or case study."
+            thumb_url: "images/product-thumb.jpg"
+            rate: 4.5
+            price: 0
+            content: "<p>Describe the problem, solution, and outcome. Add screenshots or embedded demos as needed.</p>"

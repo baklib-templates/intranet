@@ -50,6 +50,9 @@
 │   ├── de.json / de.schema.json（德语）
 │   ├── fr.json / fr.schema.json（法语）
 │   └── ja.json / ja.schema.json（日语）
+├── seeds/
+│   ├── 001_site.yml          # 站点默认语言与主题变量
+│   └── 002_pages.yml         # 首页 + 六个栏目 + 示例子页面
 ├── snippets/
 ├── statics/
 │   ├── feed.liquid           # /s/feed
@@ -76,12 +79,12 @@
 
 ## 使用说明
 
-1. 在 Baklib 后台选择此模板（Intranet）创建站点。`config/settings_schema.json` 的 `recommendations.initial_pages` 会自动初始化 Channel、Notifications、Events、FAQs、Forum、Products 六个页面。
+1. 在 Baklib 后台选择此模板（Intranet）创建站点。主题初始化时会读取 `seeds/`：`001_site.yml` 写入站点语言与外观相关变量，`002_pages.yml` 创建首页及六个顶层栏目，并为 FAQ（至少两条）、Channel、论坛等补上示例子页面，避免空栏目落到演示片段。`config/settings_schema.json` 中的 `recommendations.initial_pages` 仍可作为手动搭站时的 slug / 模板参考。
 2. 在【应用设置】→【外观】中配置：站点 LOGO、默认头像、站点口号、站点描述、版权信息、Header/Footer 自定义 HTML、首选反馈表情、热门标签、`is_allow_published` 审核开关。
 3. 进入【页面管理】→ 各子栏目 → 设置中，配置图标、标签、描述与栏目封面（适用项）。
 4. 可选：将 `/s/feed`（最近更新）或 `/s/terms`（服务条款）链入页头/页脚菜单。
 
-前台文案位于 `locales/`（含 zh-CN、en、de、fr、ja）；后台编辑器中的分区与模板字段标签通过 `locales/*.schema.json` 中的 `settings_schema.intranet.*`、`settings_schema.intranet_templates.*` 多语言维护。各语言预览截图位于 `assets/images/theme/<lang>/`，模板 `{% schema %}` 中通过 `images/theme/${lang}/<file>.png` 引用。
+前台文案位于 `locales/`（含 zh-CN、en、de、fr、ja）；后台编辑器中的分区与模板字段标签通过 `locales/*.schema.json` 中的 `settings_schema.intranet.*`、`settings_schema.intranet_templates.*` 多语言维护。各语言预览截图位于 `assets/images/theme/<lang>/`，模板 `{% schema %}` 中通过 `images/theme/${lang}/<file>.png` 引用。`seeds/` 中的示例正文默认为**英文**（`001_site.yml` 中 `language: en`）；若希望新建站点默认中文，可自行改写 seeds 或创建站点后在后台切换语言。
 
 ---
 

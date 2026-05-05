@@ -62,6 +62,9 @@ An internal knowledge sharing template designed for company news, event announce
 │   ├── fr.schema.json
 │   ├── ja.json
 │   └── ja.schema.json
+├── seeds/
+│   ├── 001_site.yml      # default site language & theme variables
+│   └── 002_pages.yml     # home + six channels + sample posts
 ├── snippets/
 ├── statics/
 │   ├── edit.liquid
@@ -117,12 +120,12 @@ Notable snippets: `_aside.liquid`, `_breadcrumb.liquid`, `_card.liquid`, `_event
 
 ## Getting started
 
-1. Install the theme in Baklib and create a site. The `recommendations.initial_pages` block of `config/settings_schema.json` will scaffold Channel / Notifications / Events / FAQs / Forum / Products pages on first run.
+1. Install the theme in Baklib and create a site. On initialization, `seeds/` supplies default **site settings** (`001_site.yml`) and a **page tree** with sample content (`002_pages.yml`): Intranet home plus Channel, Notifications, Events, FAQs, Forum, and Products, each with at least one child page where the templates expect real data. The `recommendations.initial_pages` block in `config/settings_schema.json` still describes the recommended top-level slugs for manual scaffolding.
 2. Configure appearance under **App settings → Appearance**: site logo, default avatar, slogan, description, copyright line, header/footer HTML, primary feedback emoji, hot tags, and the `is_allow_published` moderation switch.
 3. Customise each sub-channel from **Pages → <channel> → Settings**: icon, tags, description and the cover image where applicable.
 4. Optional: link `/s/feed` (recent updates) or `/s/terms` (service agreement) from your **header / footer menu**.
 
-User-visible strings are centralized under `locales/` (`zh-CN`, `en`, `de`, `fr`, `ja`); editor labels for this theme use `t:settings_schema.intranet.*` and `t:settings_schema.intranet_templates.*` keys in the matching `*.schema.json` files. Per-language preview screenshots live in `assets/images/theme/<lang>/` and are referenced as `images/theme/${lang}/<file>.png` in template `{% schema %}` blocks.
+User-visible strings are centralized under `locales/` (`zh-CN`, `en`, `de`, `fr`, `ja`); editor labels for this theme use `t:settings_schema.intranet.*` and `t:settings_schema.intranet_templates.*` keys in the matching `*.schema.json` files. Per-language preview screenshots live in `assets/images/theme/<lang>/` and are referenced as `images/theme/${lang}/<file>.png` in template `{% schema %}` blocks. Seed copy defaults to **English** (`001_site.yml` sets `language: en`); adjust `seeds/` if you want another default locale for new sites.
 
 ---
 
