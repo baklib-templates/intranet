@@ -1,0 +1,94 @@
+<!-- cruip-mosaic-html/meetups.html -->
+{% assign pages = page.pages_in_list | order_by: '-published_at' %}
+{% assign pages_count  =  pages | size %}
+{% assign default_thumb = 'images/event-thumb.jpg' | asset_url %}
+
+{% unless pages_count > 0 %}
+    {% render 'demo_events' %}
+{% else %}
+    <main class="grow">
+        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+
+            <!-- Page header -->
+            <div class="sm:flex sm:justify-between sm:items-center mb-5">
+
+                <!-- Page title -->
+                <div class="mb-5">
+                    <h1 class="flex items-center text-2xl md:text-4xl text-gray-800 font-bold">
+                        <img src="{{ page.settings.icon | default: '👏'}}" class="w-10 h-10 mr-2"/>
+                        {{ page.link_text }}</h1>
+                    <p class="text-sm text-gray-600 mt-2">{{ page.settings.description }}</p>
+                </div>
+
+                <!-- Right: Actions -->
+
+            </div>
+
+            <!-- Filters -->
+            <div class="mb-5">
+                <ul class="flex flex-wrap -m-1">
+                    <li class="m-1">
+                        <a href="{{ page.path }}" class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-800 transition">
+                            {{ 'generic.all' | t }}</a>
+                    </li>
+                    {% for tag in page.settings.tags %}
+                        <li class="m-1">
+                            <a href="{{ page.path |  append: '?tag=' |  append: tag.name }}"
+                                class="{% if tag.name == params['tag'] %} underline bg-primary text-white {% endif %} inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% paginate_tag pages %}
+                <!-- Content -->
+                <div class="grid xl:grid-cols-2 gap-6 mb-8">
+                    {% for item in pages %}
+                        {% assign tag_names = item.settings.tags | map: 'name' %}
+                        {% if params['tag'] == nil or (params['tag'] and (tag_names contains params['tag'])) %} 
+                            <!-- Item 1 -->
+                            {% render 'event', item: item %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-8">
+                    <div class="flex justify-center">
+                        {% render 'paginate', paginate: paginate %}
+                    </div>
+                </div>
+            {% endpaginate_tag %}
+
+        </div>
+    </main>
+{% endunless %}
+
+{% schema %}
+{
+    "name": "Events",
+    "description": "活动会议栏目",
+    "thumb_url": "images/theme/events.png",
+    "sub_page_templates": ["event"],
+    "settings": [
+        {
+            "id": "icon",
+            "type": "image_picker",
+            "ratio": "1:1",
+            "width": 100,
+            "label": "图标"
+        },
+        {
+            "id": "tags",
+            "type": "tag_picker",
+            "multiple": true,
+            "label": "标签"
+        },
+        {
+            "id": "description",
+            "type": "textarea",
+            "label": "描述"
+        }
+    ]
+}
+{% endschema %}

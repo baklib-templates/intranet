@@ -1,0 +1,85 @@
+{% set_meta_title '如何使用Intranet' %}
+{% set_meta_description '如果通用Baklib CMS 的内部信息系统' %}
+{% set_meta_keywords 'Baklib, Intranet' %}
+
+<div class="mx-auto max-w-screen-lg px-3 py-6">
+  <div class="flex items-start">
+    <div class="prose prose-indigo max-w-none">
+      <h1>模板使用教程</h1>
+      <h3>1. 添加模板到组织中</h3>
+      <p>Personal Blog 模板存放着gitlab上的，你可以进入Baklib 组织模板管理中，添加到组织模板。</p>
+      <pre style="white-space: pre; overflow-wrap: break-word; overflow-x: auto; font-family: monospace;">
+git@gitlab.com:baklib/themes/intranet.git</pre>
+      <h3>2. 通过模板创建站点</h3>
+      <p>选择“添加新应用”，在模板市场中找到以上的【Personal Blog】模板，创建好一个网站。</p>
+      <p>1) 在应用管理界面填充相关预定义信息。</p>
+      <p>2) 在【页面管理】--【首页】编辑界面，设置首页信息。</p>
+      <p>3) 在【页面管理】中添加新页面。页面可按类型区分并分别展示在【项目案例】和【博客文章】类目下。</p>
+
+      <h3>3. 构建网站页面</h3>
+      <p>打开模板编辑器，将创建的静态网页放在文件夹<code>/statics</code>下，创建的动态模板网页放在文件夹<code>/templates</code>下。</p>
+      <blockquote>
+        <p>关于模板开发教程请参考：<a href="https://dev.baklib.cn">Baklib 开发者中心</a>.
+        </p>
+      </blockquote>
+      <p></p>
+      <h1>界面预览</h1>
+      <p class="mt-1 text-gray-600 dark:text-neutral-400">
+        Personal Blog模板界面比较简单，只有一个首页、一个列表页和一个详情页。
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/changelog.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>changelog.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/channel.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>channel.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/events.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>events.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/faqs.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>faqs.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/feed.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>feed.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/forum-post.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>forum-post.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/forum.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>forum.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/index.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>index.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/knowledge-base.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>knowledge-base.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/page.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>page.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/products.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>products.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/roadmap.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>roadmap.png</p>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<!-- Item -->
+{% assign site.settings.default_avatar = 'images/demo/avatar-01.jpg' |  asset_url %}
+<div class="[&:nth-child(-n+4)]:-order-1 bg-gradient-to-tr from-slate-50/20 via-slate-200/50 to-slate-50/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20">
+    <div class="relative p-5">
+        <div class="absolute inset-0 -m-px pointer-events-none -z-10 before:absolute before:inset-0 before:bg-gradient-to-t before:from-slate-50 before:to-slate-100 dark:before:from-slate-700 dark:before:to-slate-800 after:absolute after:inset-0 after:bg-slate-100 dark:after:bg-slate-900 after:m-px" aria-hidden="true"></div>
+        <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
+            <div class="space-y-1 shrink-0">
+                <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-700 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
+                    <span class="text-xs">投票</span>
+                    <span class="text-xs font-medium text-center text-indigo-500 grow">{{ page | feedback_type_count: site.settings.feedback_useful_type }}</span>
+                </button>
+                <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-700 dark:border-slate-700 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
+                    <span class="text-xs">回复</span>
+                    <span class="text-xs font-medium text-center text-indigo-500 grow">{{ page.comments | roots | size }}</span>
+                </button>
+            </div>
+            <div class="items-center justify-between space-y-5 grow lg:flex lg:space-x-6 lg:space-y-0">
+                <div>
+                    <div class="mb-2">
+                        <h2>
+                            <a class="text-base font-semibold transition duration-150 ease-in-out md:text-lg text-slate-900 dark:text-slate-100 hover:text-primary" href="{{ page.path }}" data-turbo="false">
+                            {{ page.link_text }}</a>
+                        </h2>
+                    </div>
+                    <div class="mb-2 line-clamp-2 text-slate-600 dark:text-slate-300">{{ page.settings.content | strip_html | truncate: 120 }}</div>
+                    <div class="flex items-center">
+                        <img class="mr-2 rounded-full" src="{{ page.author.avatar_url | default: site.settings.default_avatar }}" width="16" height="16" alt="User 01" />
+                        <div class="text-xs text-slate-600">
+                            <a class="font-medium text-indigo-500 transition duration-150 ease-in-out hover:text-indigo-400" href="#0">{{ page.author.name }}</a> ·
+                            <span class="text-slate-500">{{ page.created_at | date: "%Y-%m-%d %H:%M" }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shrink-0 flex -space-x-3 -ml-0.5">
+                    {% assign answers = page.comments | roots | order_by: '-created_at' | limit: 3 %}
+                    {% for answer in answers %}
+                        <img class="box-content border-2 rounded-full border-slate-200 dark:border-slate-900 " src="{{ answer.author.avatar_url | default: site.settings.default_avatar  }}" width="32" height="32" alt="User 02" />
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

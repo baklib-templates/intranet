@@ -1,0 +1,175 @@
+<div class="">
+  <div class="p-4 truncate max-w-7xl">
+    {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+  </div>
+</div>
+
+<article class="w-full px-4 pt-6 pb-8 space-y-6 bg-white rounded-md shadow-sm shadow-gray-200 lg:pb-10 lg:pt-10 lg:px-6">
+  <div class="max-w-screen-md mx-auto">
+    <h1 class="text-2xl font-semibold text-center text-gray-800 lg:text-4xl">{{ page.settings.title }}</h1>
+    {% if page.settings.description %}
+      <blockquote class="mt-2 text-sm bg-slate-100 p-2 border-slate-300 border-l-2 text-gray-700">
+        {{ page.settings.description }}
+      </blockquote>
+    {% endif %}
+  </div>
+  <!-- article -->
+  <section class="max-w-screen-sm mx-auto">
+    <article class="ProseMirror break-words">
+      {% if page.settings.thumb_url %}
+        <img src="{{ page.settings.thumb_url }}" class="object-contain max-w-xl" alt="{{ page.link_text }}" />
+      {% endif %}
+      {{ page.settings.content | sanitize_html }}
+    </article>
+
+    <!--Tags-->
+    {% if page.settings.tags.size > 0 %}
+      <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0 ">
+          <p>{{ 'generic.tags' | t }}：</p>
+          {% for tag in page.settings.tags %}
+              <a href="{{ tag.path }}" style="background-color: {{ tag.color }}" class="px-2 py-1 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2">
+              {{ tag.name }}
+              </a>
+          {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Sub Post Section -->
+    {% render 'sub_page_list', page: page %}
+
+    <!-- Upvotes button -->
+    <div class="flex justify-center mx-auto mt-12 border-t">
+      <div class="shrink-0 mt-4" x-data="{ posted_feedback: {{ page.visitor_posted_feedback }}, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }}  } ">
+        <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
+          {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
+            <div class="shrink-0">
+              <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type  }}"
+              :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
+                class="h-16 w-16 pt-2 items-center text-center flex flex-col rounded-full border border-primary bg-primary hover:bg-slate-300 dark:hover:bg-slate-800">
+                  <span>{{ site.settings.feedback_useful_type }}</span>
+                  <span class="text-white" x-text="feedback_count"></span>
+              </button>
+              <span>feedback</span>
+            </div>
+          {% endform_tag %}
+        </div>
+        <div x-show="posted_feedback == false" @click="posted_feedback=true;feedback_count++"  x-cloak>
+          {% form_tag 'feedback', page: page %}
+            <div class="shrink-0">
+              <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
+                class="h-16 w-16 pt-2 items-center text-center flex flex-col rounded-full border border-primary-200 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 hover:bg-slate-300 dark:hover:bg-slate-800">
+                  <span>{{ site.settings.feedback_useful_type }}</span>
+                  <span class="" x-text="feedback_count"></span>
+              </button>
+              <span>feedback</span>
+            </div>
+          {% endform_tag %}
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- comments -->
+<section class="max-w-6xl mx-auto w-full bg-white mt-6 p-6 mb-12">
+  {% if page.author.id == current_user.member_id %}
+    <div class="my-4">
+      <div class="relative p-5 border rounded-md bg-slate-200 dark:bg-slate-800 border-slate-600">
+        <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
+            <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">
+              <span>{{ 'buttons.edit_post' | t }}</span>
+            </a>
+            {% form_tag 'delete_page', page %}
+              <button class="btn btn-ghost"> {{ 'buttons.delete' | t }} </button>
+            {% endform_tag %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% unless page.published_at %}
+    <p class="mt-4 text-sm font-bold text-info"> {{ 'generic.under_review' | t }} ! </p>
+  {% endunless %}
+  
+  <div class="my-4">
+    {% render 'reply_page_form', target: page %}
+  </div>
+
+  <!-- Comments list -->
+  <div data-controller="load_more">
+    <h4 class="mb-2 font-bold "> {{ page.comments | size }} {{ 'generic.comments' | t }} </h4>
+    <!-- Comments (1st level) -->
+    {% assign answers = page.comments | roots  %}
+    <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
+      {% paginate_tag answers %}
+        {% for reply in answers %}
+          {% render 'reply', reply: reply %}
+        {% endfor %}
+      {% endpaginate_tag %}
+    </ul>
+    {{ paginate.next.page  }}
+    {% if paginate.next_page %}
+      <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
+      data-load_more-target="button" class="btn btn-ghost"
+      >
+      {{ 'generic.read_more' | t }}
+      </button>
+    {% endif %}
+  </div>
+</section>
+
+
+<!--/ article-->
+{% schema %}
+    {
+    "name": "Page",
+    "thumb_url": "images/theme/page.png",
+    "description": "文章详情模板",
+    "sub_page_templates": ["page"],
+    "settings": [
+        {
+          "id": "type",
+          "type": "select",
+          "default": "0",
+          "choices": [{"label":"博客文章","value":"0"},{"label":"项目案例","value":"1"},{"label":"其他","value":"2"}],
+          "label": "页面类型"
+        },
+        {
+          "id": "tags",
+          "type": "tag_picker",
+          "multiple": true,
+          "label": "标签"
+        },
+        {
+          "id": "thumb_url",
+          "type": "image_picker",
+          "ratio": "6:4",
+          "width": 400,
+          "label": "封面图片"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "placeholder": "",
+          "label": "标题",
+          "info": "显示在正文上方的文章标题"
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "placeholder": "",
+          "label": "描述",
+          "info": "文章描述"
+        },
+        {
+          "id": "content",
+          "type": "richtext",
+          "label": "页面内容"
+        }
+    ],
+    "user_creatable": true,
+    "user_editable": true,
+    "user_deletable": true,
+    "user_permitted_attributes": ["title", "content"]
+    }
+{% endschema %}

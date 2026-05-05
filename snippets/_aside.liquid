@@ -1,0 +1,207 @@
+{% assign index_page = site.pages['/'] %}
+{% assign channels = site.pages['/'].children_in_nav_menu %}
+{% assign default_icon = 'images/folder.svg' |  asset_url %}
+{% assign logo = 'images/logo.png' | asset_url %}
+{% assign hot_tags = site.settings.hot_tags | split: ',' %}
+
+<aside
+  x-ref="sidebar"
+  class="flex flex-wrap flex-shrink min-w-fit"
+  @click.away="mobileMenu = false"
+  @resize.debounce.100.window="forceSmallMenu()"
+  x-data="{
+    smallMenu: JSON.parse(localStorage.getItem('smallMenu')),
+    mobileMenu: false,
+    forceSmallMenu() { this.smallMenu = window.innerWidth < 1280, this.mobileMenu = !window.innerWidth > 640},
+    isInUrl($string) { return window.location.href.match($string) },
+  }"
+  x-init="
+    $watch('smallMenu', (val) => localStorage.setItem('smallMenu', val));
+    $refs.sidebar.classList.remove('overflow-hidden');
+    forceSmallMenu();
+  ">
+
+  <button @click="[mobileMenu = true, smallMenu = false]" type="button" class="absolute z-50 flex items-center justify-center w-8 h-8 p-1 text-gray-400 transition-colors duration-300 bg-white rounded-full sm:hidden top-4 left-4 hover:bg-gray-100" >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    <span class="sr-only">Open Menu</span>
+  </button>
+
+    <!-- small variant -->
+    <div
+      x-data="{ hoverMenu: false }"
+      class="top-0 z-20 hidden w-16 h-full text-gray-400 transition-transform duration-500 bg-gray-800 sm:block "
+      :class="[(smallMenu ? 'translate-x-0 relative md:relative' : '-translate-x-16 absolute w-0 overflow-y-auto') ]"
+      x-cloak
+    >
+      <div class="flex justify-between px-4 py-3 bg-primary bg-opacity-90">
+        <button @click="smallMenu = false" class="flex items-center justify-center p-2 transition-all bg-transparent rounded-full hover:bg-gray-800 hover:text-secondary"  >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="[(smallMenu ? 'translate-x-0 relative' : '-translate-x-16  w-0') ]">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+          </svg>
+          <span class="sr-only">Expand menu</span>
+        </button>
+      </div>
+      <nav class="py-4">
+        <ul>
+          <li>
+            <a href="{{ site.index_path }}" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
+              <img src="{{ index_page.settings.icon |  default: default_icon }}" class="size-4.5 w-4.5 h-4.5 text-white"/>
+              <span class="sr-only">控制台</span>
+            </a>
+          </li>
+          {% for channel in channels %}
+            <li>
+              <a href="{{ channel.path }}" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
+                <img src="{{ channel.settings.icon | default: default_icon }}" class="size-4.5 w-4.5 h-4.5 text-white"/>
+                <span class="sr-only">{{ channel.link_text }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+    <!-- small variant -->
+
+    <!-- large variant -->
+    <div
+      class="z-20 h-full overflow-y-auto text-white transition-all duration-500 bg-primary opacity-0"
+      :class="[
+        ( (smallMenu && !mobileMenu) ? '-translate-x-64  sm:relative w-0 ' : 'sm:relative translate-x-0 sm:opacity-100 '),
+        ( (mobileMenu && !smallMenu) ? 'fixed translate-x-0 opacity-100 w-64 ' : ''),
+        ( (!mobileMenu && !smallMenu) ? '-translate-x-64  absolute w-0 sm:w-64 sm:translate-x-0 sm:opacity-100 sm:relative ' : 'fixed translate-x-0 opacity-100 '),
+      ]" >
+      <div class="flex justify-between px-4 py-3 bg-primary bg-opacity-90">
+        <a href="{{ site.index_path }}" class="flex items-center justify-center lg:justify-start">
+          <img src="{{ site.favicon_url | default: logo }}" alt="logo" class="inline-block h-4">
+          <span class="ml-2 text-xl font-bold text-white dark:text-slate-200">{{ site.name }}</span>
+        </a>
+        <button @click="[smallMenu = true]" class="items-center justify-center hidden p-2 transition-all translate-x-2 bg-transparent rounded-full sm:flex hover:bg-gray-800 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+          </svg>
+        </button>
+        <button @click="[mobileMenu = false, smallMenu = true]" class="flex items-center justify-center p-2 transition-all translate-x-2 bg-transparent rounded-full sm:hidden hover:bg-gray-800 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
+      <div class="py-4">
+        <nav>
+          <a href="{{ site.index_path }}" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-primary group">
+            <img src="{{ index_page.settings.icon |  default: default_icon }}" class="size-4.5 w-4.5 h-4.5 text-white"/>
+            <span class="transition-colors duration-100 group-hover:text-white">{{ index_page.link_text }}</span>
+          </a>
+
+          {% for channel in channels %}
+            <a href="{{ channel.path }}" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+              <img src="{{ channel.settings.icon | default: default_icon }}" class="size-4.5 w-4.5 h-4.5 text-white"/>
+              <span class="transition-colors duration-100 group-hover:text-white">{{ channel.link_text }}</span>
+            </a>
+          {% endfor %}
+
+          {% if false %}
+            <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">Apps</span>
+            <ul>
+              <li>
+                <a href="/s/get-started" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Get Started</span>
+                </a>
+              </li>
+              <li>
+                <a href="/s/roadmap" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Roadmap</span>
+                </a>
+              </li>
+              <li>
+                <a href="/s/feed" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Feed</span>
+                </a>
+              </li>
+              <li>
+                <a href="/s/sitemap" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Sitemap</span>
+                </a>
+              </li>
+            </ul>
+          {% endif %}
+
+          {% if site.settings.header_menu_html %}
+            {{ site.settings.header_menu_html }}
+          {% else %}
+            <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">External Links</span>
+            <ul>
+              <li>
+                <a href="https://www.baklib.cn" target="_blank" class="flex items-center justify-between px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <span class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+                    </svg>
+                    <span class="transition-colors duration-100 group-hover:text-white">Baklib</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.tanmer.com" target="_blank" class="flex items-center justify-between px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <span class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                    </svg>
+                    <span class="transition-colors duration-100 group-hover:text-white">Tanmer</span>
+                  </span>
+                </a>
+              </li>
+              
+            </ul>
+          {% endif %}
+          
+          <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">{{ 'generic.tags' | t}}</span>
+          <ul>
+            {% if site.settings.hot_tags %}
+              {% for tag in hot_tags %}
+                <li>
+                  <a href="{{site.index_path }}-/tags/{{ tag }}" class="flex items-center justify-between px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                    <span class="flex items-center space-x-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"class="w-4 h-4 transition-colors duration-300 group-hover:text-secondary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5" />
+                      </svg>
+                      <span class="transition-colors duration-100 group-hover:text-white">{{ tag }}</span>
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            {% else %}
+                <li>
+                  <a href="#" class="flex items-center justify-between px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                    <span class="flex items-center space-x-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"class="w-4 h-4 transition-colors duration-300 group-hover:text-secondary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5" />
+                      </svg>
+                      <span class="transition-colors duration-100 group-hover:text-white">Tag 1</span>
+                    </span>
+                  </a>
+                </li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!--/ large variant -->
+
+
+
+</aside>

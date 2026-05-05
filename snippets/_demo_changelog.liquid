@@ -1,0 +1,244 @@
+<main class="grow relative">
+    <!-- mask bg-->
+    {% render 'mask_bg' %}
+    <!-- content -->
+    <!-- Page header -->
+    <div
+        class="sm:flex sm:justify-between sm:items-center px-4 sm:px-6 py-8 border-b border-gray-200 dark:border-gray-700/60">
+
+        <!-- Page title -->
+        <div class="mb-5">
+            <h1 class="flex items-center text-2xl md:text-4xl text-gray-800 font-bold">
+                <img src="{{ 'images/company-icon-03.svg' | asset_url }}" class="w-10 h-10 mr-2">
+                Notifications
+            </h1>
+            <p class="text-sm text-gray-600 mt-2">Display product updates and company announcements.</p>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+            <!-- Add entry button -->
+            <a href="##a"
+                class="btn bg-primary text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white">后台管理</a>
+        </div>
+
+    </div>
+
+    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto bg-white">
+        <div class="max-w-3xl m-auto">
+
+            <!-- Filters -->
+            <div class="xl:pl-32 xl:-translate-x-16 mb-2">
+                <ul class="flex flex-wrap -m-1">
+                    <li class="m-1">
+                        <button
+                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-primary dark:bg-gray-100 text-white dark:text-gray-800 transition">All</button>
+                    </li>
+
+                    <li class="m-1">
+                        <a href="#/notifications?tag=Baklib CMS"
+                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">Baklib CMS</a>
+                    </li>
+
+                    <li class="m-1">
+                        <a href="#/notifications?tag=Community"
+                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">Community</a>
+                    </li>
+
+                    <li class="m-1">
+                        <a href="#/notifications?tag=Wiki"
+                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">Wiki</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Posts -->
+
+            <div class="xl:-translate-x-16">
+
+
+
+                <!-- Post -->
+                <article class="pt-6">
+                    <div class="xl:flex">
+                        <div class="w-32 shrink-0">
+                            <div class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">
+                                2024-11-13</div>
+                        </div>
+                        <div class="grow border-b border-gray-200 dark:border-gray-700/60">
+                            <header>
+                                <h2 class="text-2xl text-gray-800 font-bold mb-3">Definition of
+                                    Changelog</h2>
+                            </header>
+                            <div class="space-y-3">
+                                <p>Creating a changelog is a straightforward process, but it requires diligence and
+                                    consistency. The first step is to decide on the format of the changelog. While
+                                    there's no standard format for changelogs, most of them include the version number,
+                                    release date, and a list of changes.</p>
+                            </div>
+                            <footer class="mt-4">
+                                <div class="flex flex-nowrap items-center space-x-2 mb-4">
+                                    <div class="flex items-center">
+                                        <a class="block mr-2 shrink-0" href="##0">
+                                            <img class="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 box-content"
+                                                src="{{ 'images/avatar.svg' |  asset_url }}"
+                                                alt="User 04">
+                                        </a>
+                                        <a class="block text-sm font-semibold text-gray-800"
+                                            href="##0">
+                                            song
+                                        </a>
+                                    </div>
+                                    <div class="text-gray-400 dark:text-gray-600">·</div>
+                                    <div>
+
+
+                                        <a href="#/-/tags/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80"
+                                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                                            style="
+                                                background-color: hsl(235.0, 15.38%, 90%);
+                                                color: #42445A;
+                                                ">
+                                            #Baklib CMS
+                                        </a>
+
+                                        <a href="#/-/tags/UI%20%E8%AE%BE%E8%AE%A1"
+                                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                                            style="
+                                                background-color: hsl(339.61, 82.19%, 90%);
+                                                color: #E91E63;
+                                                ">
+                                            #Wiki
+                                        </a>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </article>
+
+
+
+
+                <!-- Post -->
+                <article class="pt-6">
+                    <div class="xl:flex">
+                        <div class="w-32 shrink-0">
+                            <div class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">
+                                2024-11-13</div>
+                        </div>
+                        <div class="grow border-b border-gray-200 dark:border-gray-700/60">
+                            <header>
+                                <h2 class="text-2xl text-gray-800 font-bold mb-3">In the realm of
+                                    product management and operations</h2>
+                            </header>
+                            <div class="space-y-3">
+                                <p>Creating a changelog is a straightforward process.</p>
+                                <p></p>
+                                <p>Once the format is decided, the next step is to document the changes for each
+                                    version. This involves writing a brief description. It's important to write the descriptions in a way
+                                    that they are understandable to the users, not just the developers.</p>
+                            </div>
+                            <footer class="mt-4">
+                                <div class="flex flex-nowrap items-center space-x-2 mb-4">
+                                    <div class="flex items-center">
+                                        <a class="block mr-2 shrink-0" href="##0">
+                                            <img class="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 box-content"
+                                                src="{{ 'images/avatar.svg' | asset_url }}"
+                                                alt="User 04">
+                                        </a>
+                                        <a class="block text-sm font-semibold text-gray-800"
+                                            href="##0">
+                                            song
+                                        </a>
+                                    </div>
+                                    <div class="text-gray-400 dark:text-gray-600">·</div>
+                                    <div>
+
+
+                                        <a href="#/-/tags/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80"
+                                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                                            style="
+                                                background-color: hsl(235.0, 15.38%, 90%);
+                                                color: #42445A;
+                                                ">
+                                            #Baklib CMS
+                                        </a>
+                                        <a href="#/-/tags/%E5%93%81%E7%89%8C%E6%8E%A8%E5%B9%BF"
+                                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                                            style="
+                                                background-color: hsl(291.24, 63.72%, 90%);
+                                                color: #9C27B0;
+                                                ">
+                                            #Community
+                                        </a>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post -->
+                <article class="pt-6">
+                    <div class="xl:flex">
+                        <div class="w-32 shrink-0">
+                            <div class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">
+                                2024-11-13</div>
+                        </div>
+                        <div class="grow border-b border-gray-200 dark:border-gray-700/60">
+                            <header>
+                                <h2 class="text-2xl text-gray-800 font-bold mb-3">Importance of a
+                                    Changelog</h2>
+                            </header>
+                            <div class="space-y-3">
+                                <p>While there's no standard format for changelogs, most of them include the version number,
+                                    release date, and a list of changes.</p>
+                                <p>Once the format is decided, the next step is to document the changes for each
+                                    version. This involves writing a brief description of each change and categorizing
+                                    it under the appropriate heading. </p>
+                            </div>
+                            <footer class="mt-4">
+                                <div class="flex flex-nowrap items-center space-x-2 mb-4">
+                                    <div class="flex items-center">
+                                        <a class="block mr-2 shrink-0" href="##0">
+                                            <img class="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 box-content"
+                                                src="{{ 'images/avatar.svg' | asset_url }}"
+                                                alt="User 04">
+                                        </a>
+                                        <a class="block text-sm font-semibold text-gray-800"
+                                            href="##0">
+                                            song
+                                        </a>
+                                    </div>
+                                    <div class="text-gray-400 dark:text-gray-600">·</div>
+                                    <div>
+                                        <a href="#/-/tags/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80"
+                                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                                            style="
+                                                background-color: hsl(235.0, 15.38%, 90%);
+                                                color: #42445A;
+                                                ">
+                                            #Baklib CMS
+                                        </a>
+                                        <a href="#/-/tags/%E5%93%81%E7%89%8C%E6%8E%A8%E5%B9%BF"
+                                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                                            style="
+                                                background-color: hsl(291.24, 63.72%, 90%);
+                                                color: #9C27B0;
+                                                ">
+                                            #Community
+                                        </a>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </article>
+
+
+            </div>
+        </div>
+    </div>
+</main>

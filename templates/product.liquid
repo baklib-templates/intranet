@@ -1,0 +1,126 @@
+<div class="">
+  <div class="p-4 truncate max-w-7xl">
+    {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+  </div>
+</div>
+<main class="grow bg-white">
+  <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+
+    <!-- Page content -->
+    <div class="flex flex-col space-y-10 sm:flex-row sm:space-x-6 sm:space-y-0 md:flex-col md:space-x-0 md:space-y-10 xl:flex-row xl:space-x-6 xl:space-y-0">
+      <!-- sidebar -->
+      <div class="max-w-72">
+        {% render 'product', item: page, bg_color: 'bg-gray-100' %} 
+      </div>
+      <div>
+        <h1 class="h1 mb-2">{{ page.settings.title }}</h1>
+
+        {% if page.settings.description %}
+          <blockquote class="my-2 text-sm bg-slate-100 p-2 border-slate-300 border-l-2 text-gray-700">
+            {{ page.settings.description }}
+          </blockquote>
+        {% endif %}
+
+        <!-- Page content -->
+        <div class="ProseMirror break-words">
+          {{ page.settings.content | sanitize_html }}
+        </div>
+        <!--Tags-->
+        {% if page.settings.tags.size > 0 %}
+          <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0 ">
+              <p>{{ 'generic.tags' | t }} </p>
+              {% for tag in page.settings.tags %}
+                {% render 'tag', tag: tag %}
+              {% endfor %}
+          </div>
+        {% endif %}
+    
+        <!-- Feedback -->
+        <div class="py-8 lg:flex lg:items-center lg:justify-between">
+          <div></div>
+          <div class="">
+            <div class="text-lg font-bold text-slate-800">{{ 'generic.feedback' | t }}</div>
+            {% render "feedback_form", page: page %}
+          </div>
+        </div>
+    
+        <!-- Sub Post Section -->
+        {% render 'sub_page_list', page: page %}
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!--/ article-->
+{% schema %}
+    {
+    "name": "Product",
+    "thumb_url": "images/theme/page.png",
+    "description": "产品/项目/案例详情模板",
+    "sub_page_templates": ["post"],
+    "settings": [
+        // {
+        //   "id": "type",
+        //   "type": "select",
+        //   "default": "0",
+        //   "choices": [{"label":"自研","value":"0"},{"label":"外包","value":"1"},{"label":"开源","value":"2"}],
+        //   "label": "分类属性"
+        // },
+        {
+          "id": "thumb_url",
+          "type": "image_picker",
+          "ratio": "6:4",
+          "width": 400,
+          "label": "封面图片"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "placeholder": "",
+          "label": "标题",
+          "info": "显示在正文上方的文章标题"
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "placeholder": "",
+          "label": "描述",
+          "info": "文章描述"
+        },
+        {
+          "id": "tags",
+          "type": "tag_picker",
+          "multiple": true,
+          "label": "标签"
+        },
+        {
+          "id": "rate",
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "default": 4.5,
+          "label": "评分"
+        },
+        {
+          "id": "price",
+          "type": "number",
+          "min": 0,
+          "max": 10000,
+          "step": 0.01,
+          "default": 35.6,
+          "label": "价格"
+        },
+        {
+          "id": "content",
+          "type": "richtext",
+          "label": "页面内容"
+        }
+    ],
+    "user_creatable": true,
+    "user_editable": true,
+    "user_deletable": true,
+    "user_permitted_attributes": ["title", "content"]
+    }
+{% endschema %}

@@ -1,0 +1,124 @@
+{% assign pages = page.children_in_list | order_by: "-published_at" %}
+{% assign pages_count = pages | size %}
+
+{% if pages_count < 1 %}
+    {% render 'demo_changelog' %}
+{% else %}
+    <main class="grow">
+        <!-- Page header -->
+        <div class="sm:flex sm:justify-between sm:items-center px-4 sm:px-6 py-8 border-b border-gray-200 dark:border-gray-700/60">
+
+            <!-- Page title -->
+            <div class="mb-5">
+                <h1 class="flex items-center text-2xl md:text-4xl text-gray-800 font-bold">
+                    <img src="{{ page.settings.icon | default: '👏'}}" class="w-10 h-10 mr-2"/>
+                    {{ page.link_text }}</h1>
+                <p class="text-sm text-gray-600 mt-2">{{ page.settings.description }}</p>
+            </div>
+
+            <!-- Right: Actions -->
+
+        </div>
+
+        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto bg-white">
+            <div class="max-w-3xl m-auto">
+
+                <!-- Filters -->
+                <div class="mb-5">
+                    <ul class="flex flex-wrap -m-1">
+                        <li class="m-1">
+                            <a href="{{ page.path }}" class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-800 transition">
+                                {{ 'generic.all' | t }}</a>
+                        </li>
+                        {% for tag in page.settings.tags %}
+                            <li class="m-1">
+                                <a href="{{ page.path |  append: '?tag=' |  append: tag.name }}"
+                                    class="{% if tag.name == params['tag'] %} underline bg-primary text-white {% endif %} inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Posts -->
+                {% paginate_tag pages, per: 24 %}
+                    <div class="xl:-translate-x-16">
+                        {% for item in pages %}
+                            {% assign tag_names = item.settings.tags | map: 'name' %}
+                            {% if params['tag'] == nil or (params['tag'] and (tag_names contains params['tag'])) %} 
+                                <!-- Post -->
+                                <article class="pt-6">
+                                    <div class="xl:flex">
+                                        <div class="w-32 shrink-0">
+                                            <div class="text-lg font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">{{ item.published_at | date: "%Y-%m-%d" }}</div>
+                                        </div>
+                                        <div class="grow border-b border-gray-200 dark:border-gray-700/60">
+                                            <header>
+                                                <h2 class="text-2xl font-bold mb-3">{{ item.settings.title }}</h2>
+                                            </header>
+                                            <div class="space-y-3">
+                                                {{ item.settings.content }}
+                                            </div>
+                                            <footer class="mt-4">
+                                                <div class="flex flex-nowrap items-center space-x-2 mb-4">
+                                                    <div class="flex items-center">
+                                                        <a class="block mr-2 shrink-0" href="#0">
+                                                            <img class="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 box-content" src="{{ 'images/user-01.jpg' | asset_url }}" alt="User 04">
+                                                        </a>
+                                                        <a class="block text-sm font-semibold" href="#0">
+                                                            {{ item.author.name }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="text-gray-400 dark:text-gray-600">·</div>
+                                                    <div>
+                                                        {% for tag in item.settings.tags %}
+                                                            {% render 'tag', tag: tag %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="xl:pl-32 xl:-translate-x-16 mt-6">
+                        {% render 'paginate', paginate: paginate %}
+                    </div>
+                {% endpaginate_tag %}
+
+            </div>
+        </div>
+    </main>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Changelog",
+        "description": "日志/公告等栏目",
+        "thumb_url": "images/theme/changelog.png",
+        "sub_page_templates": ["post"],
+        "settings": [
+            {
+                "id": "icon",
+                "type": "image_picker",
+                "ratio": "1:1",
+                "width": 100,
+                "label": "图标"
+            },
+            {
+                "id": "tags",
+                "type": "tag_picker",
+                "multiple": true,
+                "label": "标签"
+            },
+            {
+                "id": "description",
+                "type": "textarea",
+                "label": "描述"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,201 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "intranet",
+    "theme_label": "t:theme_label",
+    "theme_description": "t:theme_description",
+    "theme_version": "1.0.0",
+    "theme_scope": "community",
+    "theme_author": "Baklib",
+    "theme_documentation_url": "https://help.baklib.cn/themes/community/intranet",
+    "theme_support_url": "https://help.baklib.cn/themes/community/intranet/settings",
+    "theme_thumb_url": "images/theme/thumb.png",
+    "theme_preview_images": [
+      "images/theme/intranet.png",
+      "images/theme/index-mockup.png",
+      "images/theme/channel-mockup.png",
+      "images/theme/index.png",
+      "images/theme/channel.png",
+      "images/theme/events.png",
+      "images/theme/forum.png"
+    ],
+    "theme_languages": [
+      {
+        "name": "中文简体",
+        "value": "zh-CN"
+      },
+      {
+        "name": "English",
+        "value": "en-US"
+      }
+    ],
+    "recommendations": {
+      "color_schemas": {
+        "fashion": {
+          "name": "时尚",
+          "colors": {
+            "--theme-color-primary": "#3D50E0",
+            "--theme-color-secondary": "#E91E63",
+            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-info": "#2196F3",
+            "--theme-color-success": "#4CAF50",
+            "--theme-color-warning": "#FFC107"
+          }
+        },
+        "old_school": {
+          "name": "复古",
+          "colors": {
+            "--theme-color-primary": "#9C27B0",
+            "--theme-color-secondary": "#673AB7",
+            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-info": "#418CC8",
+            "--theme-color-success": "#29B52F",
+            "--theme-color-warning": "#FFC107"
+          }
+        }
+      },
+      "initial_pages": {
+        "default": {
+          "name": "Intranet",
+          "default": true,
+          "pages": [
+            {
+              "name": "Channel",
+              "slug": "channel",
+              "template": "channel"
+            },
+            {
+              "name": "Notifications",
+              "slug": "notifications",
+              "template": "changelog"
+            },
+            {
+              "name": "Events",
+              "slug": "events",
+              "template": "events"
+            },
+            {
+              "name": "FAQs",
+              "slug": "faqs",
+              "template": "faqs"
+            },
+            {
+              "name": "Forum",
+              "slug": "forum",
+              "template": "forum"
+            },
+            {
+              "name": "Products",
+              "slug": "products",
+              "template": "products"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "t:settings_schema.generic.name",
+    "settings": [
+      {
+        "id": "is_allow_published",
+        "type": "checkbox",
+        "label": "是否开启先发后审",
+        "info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
+        "default": false
+      },
+      {
+        "id": "logo_url",
+        "type": "image_picker",
+        "ratio": "3:1",
+        "width": 150,
+        "label": "站点 LOGO"
+      },
+      {
+        "id": "default_avatar",
+        "type": "image_picker",
+        "ratio": "4:4",
+        "width": 100,
+        "label": "默认头像",
+        "info": "新注册用户未设置头像之前，显示该默认头像"
+      },
+      {
+        "id": "hot_tags",
+        "type": "text",
+        "label": "热门标签",
+        "info": "用英文逗号隔开，且保证在【标签管理】中已添加了该标签。"
+      },
+      {
+        "id": "is_allow_author",
+        "type": "checkbox",
+        "label": "文章是否显示作者信息",
+        "default": true
+      },
+      {
+        "id": "is_allow_feedback",
+        "type": "checkbox",
+        "label": "文章是否显示反馈表情",
+        "default": true
+      },
+      {
+        "id": "feedback_useful_type",
+        "type": "text",
+        "label": "首选反馈表情",
+        "placeholder": "在'应用设置'->'反馈设置'中复制过来",
+        "default": "😊"
+      },
+      {
+        "id": "slogan",
+        "type": "text",
+        "label": "站点口号",
+        "default": "Create community sites, code-free"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "站点描述",
+        "default": "Browse beautifully designed templates, effortlessly customize it to meet your specific requirements."
+      },
+      {
+        "id": "copyright_info",
+        "type": "text",
+        "label": "版权信息",
+        "placeholder": "Tanmer Inc. All Rights Served."
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.nav.nav_title",
+    "settings": [
+      {
+        "id": "header_menu_html",
+        "type": "html",
+        "label": "t:settings_schema.nav.settings.header_menu_html.label",
+        "info": "t:settings_schema.nav.settings.header_menu_html.info",
+        "rows": 10,
+        "placeholder": "<a href='#'> title </a>"
+      },
+      {
+        "id": "footer_menu_html",
+        "type": "html",
+        "label": "t:settings_schema.nav.settings.footer_menu_html.label",
+        "info": "t:settings_schema.nav.settings.footer_menu_html.info",
+        "rows": 10,
+        "placeholder": "<a href='#'> title </a>"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.nav.head_title",
+    "settings": [
+      {
+        "id": "head_html",
+        "type": "html",
+        "label": "t:settings_schema.nav.settings.head_html.label",
+        "info": "t:settings_schema.nav.settings.head_html.info",
+        "rows": 10,
+        "placeholder": "t:settings_schema.nav.settings.head_html.placeholder"
+      }
+    ]
+  }
+]

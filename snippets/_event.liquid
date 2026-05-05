@@ -1,0 +1,47 @@
+<article class="flex bg-white dark:bg-gray-800 shadow-sm rounded-xl overflow-hidden">
+    <!-- Image -->
+    <a class="relative block w-32 sm:w-72 xl:sidebar-expanded:w-40 2xl:sidebar-expanded:w-72 shrink-0"
+        href="{{ item.path }}">
+        <img class="absolute object-cover object-center w-full h-full" src="{{ item.settings.thumb_url |  default: default_thumb }}" alt="{{ item.link_text }}">
+        <!-- Like button -->
+    </a>
+    <!-- Content -->
+    <div class="grow p-5 flex flex-col">
+        <div class="grow">
+            <div class="text-sm font-semibold text-violet-500 uppercase mb-2">{{ item.settings.date |  default: '' }}</div>
+            <a class="inline-flex mb-2" href="{{ item.path }}">
+                <h3 class="h4 dark:text-white">{{ item.link_text }}</h3>
+            </a>
+            <div class="text-sm dark:text-gray-400">{{ item.settings.description }}</div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-between items-center mt-3">
+            <!-- Tag -->
+            <div
+                class="text-xs inline-flex items-center font-medium border border-gray-200 dark:border-gray-700/60 text-gray-600 dark:text-gray-400 rounded-full text-center px-2.5 py-1">
+                <svg class="w-4 h-3 fill-gray-400 dark:fill-gray-500 mr-2" viewBox="0 0 16 12">
+                    <path
+                        d="m16 2-4 2.4V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7.6l4 2.4V2ZM2 10V2h8v8H2Z">
+                    </path>
+                </svg>
+                <span>{{ item.settings.type.label }}</span>
+            </div>
+            <!-- Avatars -->
+            <div class="flex items-center space-x-2">
+              <div class="flex -space-x-3 -ml-0.5">
+                  {% assign comments = item.comments | roots | order_by: '-created_at' | limit: 3 %}
+                  {% for comment in comments %}
+                      <img class="rounded-full border-2 border-white dark:border-gray-800 box-content" src="{{ comment.author.avatar_url | default: site.settings.default_avatar  }}" width="32" height="32" alt="User 01" />
+                  {% endfor %}
+              </div>
+              <div class="text-xs font-medium text-gray-400 dark:text-gray-500 italic">
+                {%  assign comments_count = item.comments | size %}
+                {% if comments_count > 0 %}
+                  {{ comments_count }}
+                {% endif %}
+              </div>
+          </div>
+
+        </div>
+    </div>
+</article>

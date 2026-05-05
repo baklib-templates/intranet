@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="{{ site.language }}">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Baklib">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% meta_tags %}
+    {{ 'baklib/shared/editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'baklib/shared/editor.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    <style type="text/css">
+      [x-cloak] { display: none !important; }
+    </style>
+    {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
+    {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    {{ site.settings.head_html }}
+  </head>
+  <body class="h-screen bg-gray-100 text-gray-600" id="js-body" data-controller="theme">
+
+    <main class="flex h-[100dvh] overflow-hidden">
+      <div class="flex">
+        {% render 'aside' %}
+      </div>
+      <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+        {% render 'header' %}
+        {{ content_for_layout }}
+      </div>
+    </main>
+    <div id="x-teleport-target" class="relative z-[60] h-0 overflow-hidden"></div>
+  </body>
+</html>

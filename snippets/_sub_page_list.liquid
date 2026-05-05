@@ -1,0 +1,16 @@
+{% comment %} 文章下级文章列表 {% endcomment %}
+{%- assign sub_pages = page.children_in_list | order_by: '-published_at' | limit: 25 -%}
+
+{%- if sub_pages -%}
+  <ul class="mt-4 space-y-1 overflow-hidden list-none rounded">
+    {% for page in sub_pages %}
+      <li class="rounded group hover:bg-primary/10 bg-slate-100 dark:bg-slate-700 dark:text-white">
+        <a href="{{ page.path }}" class="flex items-center py-1.5 px-2 space-x-4">
+          <span>● </span>
+          <h3 class="flex-grow w-0 truncate group-hover:text-primary">{{ page.link_text }}</h3>
+          <span class="inline-block w-0 h-0 border-[5px] border-l-primary border-t-transparent border-r-transparent border-b-transparent flex-shrink-0"></span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endif -%}

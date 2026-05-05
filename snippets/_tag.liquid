@@ -1,0 +1,10 @@
+{% if tag %}
+  <a href="{{ tag.path }}"
+    class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-lg px-3 py-0 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+    style="
+      background-color: hsl({{ tag.color_hls[0] }}, {{ tag.color_hls[1] }}%, 90%);
+      color: {{ tag.color }};
+    ">
+    #{{ tag.name }}
+  </a>
+{% endif %}

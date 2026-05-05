@@ -1,0 +1,86 @@
+{% assign default_thumb = 'images/thumbnail.png' | asset_url %}
+
+<div class="{{ bg_color }} shadow-sm rounded-xl overflow-hidden">
+  <div class="flex flex-col h-full">
+    <!-- Image -->
+    <div class="relative">
+        <img class="w-full max-h-64" src="{{ item.settings.thumb_url | default: default_thumb }}" alt="{{ item.link_text }}">
+        <!-- Like button -->
+        <!-- Special Offer label -->
+    </div>
+    <!-- Card Content -->
+    <div class="grow flex flex-col p-5">
+        <!-- Card body -->
+        <div class="grow">
+            <header class="mb-2">
+                <a href="{{ item.path }}">
+                    <h3 class="text-lg font-semibold mb-1">{{ item.link_text }}</h3>
+                </a>
+                <div class="text-sm">{{ item.settings.description }}</div>
+            </header>
+        </div>
+        <!-- Rating and price -->
+        <div class="flex flex-wrap justify-between items-center">
+            <!-- Rating -->
+            <div class="flex items-center space-x-2 mr-2">
+                <!-- Stars -->
+                <div class="flex space-x-1">
+                    <button>
+                        <span class="sr-only">1 star</span>
+                        <svg class="fill-current text-yellow-500" width="16" height="16"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button>
+                        <span class="sr-only">2 stars</span>
+                        <svg class="fill-current text-yellow-500" width="16" height="16"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button>
+                        <span class="sr-only">3 stars</span>
+                        <svg class="fill-current text-yellow-500" width="16" height="16"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button>
+                        <span class="sr-only">4 stars</span>
+                        <svg class="fill-current text-yellow-500" width="16" height="16"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button>
+                        <span class="sr-only">5 stars</span>
+                        <svg class="fill-current text-gray-300 dark:text-gray-600"
+                            width="16" height="16" viewBox="0 0 16 16">
+                            <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Rate -->
+                <div class="inline-flex text-sm font-medium text-yellow-600">{{ item.settings.rate }}</div>
+            </div>
+            <!-- Price -->
+            <div>
+                <div
+                    class="inline-flex text-sm font-medium bg-red-500/20 text-red-700 rounded-full text-center px-2 py-0.5">
+                    {{ item.settings.price }}</div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
